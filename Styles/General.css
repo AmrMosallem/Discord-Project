@@ -56,7 +56,7 @@ a {
   z-index: 120;
 }
 .note img{
-  width: 100px;
+  width: 25%;
 }
 .note div{
   background-color:#313338;
@@ -64,6 +64,7 @@ a {
   text-align: center;
   padding: 20px;
   width: 400px;
+  position: relative;
 }
 .note-title{
   font-size: 34px;
