@@ -1,0 +1,136 @@
+body {
+  font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif, "Apple Symbols";
+  margin: 0;
+  background-color: rgb(48, 49, 56);
+}
+p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  --grey-text: #93979e;
+  --hover-color: rgba(255, 255, 255, 0.1);
+  --dark-color: #111214;
+  --light-color: #b5bac1;
+}
+
+.margin {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+.fs-24 {
+  font-size: 24px;
+}
+.fs-28 {
+  font-size: 28px;
+}
+.fc-orange {
+  color: orange;
+}
+.fc-purple {
+  color: purple;
+}
+.fc-yellow {
+  color: yellow;
+}
+
+.note {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 120;
+}
+.note div{
+  background-color:#313338;
+  color: var(--light-color);
+  text-align: center;
+  padding: 20px;
+  width: 400px;
+}
+.note-title{
+  font-size: 34px;
+  font-weight: bold;
+  color: white;
+}
+.note span{
+  display: block;
+  margin-top:10px;
+  background-color: #5865f2;;
+  font-size: 20px;
+  color: white;
+  padding: 4px 15px;
+  border-radius: 5px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.note span:hover{
+   background-color: #4d58d4;
+}
+.note input{
+  display: none;
+}
+.note:has(input:checked){
+  display: none;
+}
+
+
+.tooltip {
+  font-size: 14px;
+  font-family: "gg sans";
+  font-weight: normal;
+  text-wrap: nowrap;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: var(--dark-color);
+  color: white;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: 0.1s;
+  pointer-events: none;
+  z-index: 100;
+}
+.circle {
+  position: relative;
+}
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 10px;
+  background-color: rgb(0, 177, 0);
+}
+.bf-red::before,
+.af-red::after {
+  background-color: red;
+}
+
+.bf-orange::before,
+.af-orange::after {
+  background-color: orange;
+}
+.bf-yellow::before,
+.af-yellow::after {
+  background-color: yellow;
+}
+.bf-purple::before,
+.af-purple::after {
+  background-color: purple;
+}

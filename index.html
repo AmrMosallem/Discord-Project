@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="Styles/General.css" />
+  <link rel="stylesheet" href="Styles/Servers.css" />
+  <link rel="stylesheet" href="Styles/Channels.css" />
+  <link rel="stylesheet" href="Styles/Main.css" />
+  <link rel="stylesheet" href="Styles/Members.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <div class="note">
+    <div>
+      <p class="note-title">Note</p>
+      <p>This website is optimized for larger screens (e.g., laptops). For the best experience, please open it on a
+        bigger screen or use desktop site mode on your mobile device.</p>
+      <label for="note-checkbox"><span>OK</span></label>
+      <input type="checkbox" id="note-checkbox">
+    </div>
+  </div>
+
+  <section class="servers-section">
+    <div class="pfp"><i class="fa-brands fa-discord"></i></div>
+    <hr />
+    <div class="pfp pfp-active"><img src="Images/geeks.jpg" /></div>
+    <div class="pfp"><img src="Images/pablo.jpg" /></div>
+    <div class="pfp"><img src="Images/pic1.jpg" /></div>
+    <div class="pfp"><img src="Images/pic2.jpg" /></div>
+    <div class="pfp"><img src="Images/pic3.jpg" /></div>
+    <div class="pfp"><img src="Images/pic4.jpg" /></div>
+    <div class="pfp"><img src="Images/pic5.jpg" /></div>
+    <div class="pfp"><img src="Images/pic6.jpg" /></div>
+    <div class="pfp"><img src="Images/pic7.jpg" /></div>
+  </section>
+
+  <section class="channels-section">
+    <label for="server-menu-checkbox">
+      <div class="server-name">
+        <span>Geeks Community</span>
+        <i class="fa-solid fa-chevron-down fs-12"></i>
+        <i class="fa-solid fa-xmark"></i>
+        <input type="checkbox" id="server-menu-checkbox" />
+        <div class="server-menu">
+          <p>Server Boost <i class="fa-solid fa-rocket"></i></p>
+          <hr />
+          <p>Invite People <i class="fa-solid fa-user-group"></i></p>
+          <p>Server Settings <i class="fa-solid fa-gear"></i></p>
+          <p>Create Channel <i class="fa-solid fa-circle-plus"></i></p>
+          <p>Create Category<i class="fa-solid fa-folder-plus"></i></p>
+          <p>Create Event<i class="fa-solid fa-calendar-plus"></i></p>
+          <p>App Directory<i class="fa-brands fa-sketch"></i></p>
+          <hr />
+          <p>Notification Settings<i class="fa-solid fa-bell"></i></p>
+          <p>Privacy Settings<i class="fa-solid fa-shield-halved"></i></p>
+          <hr />
+          <p>Edit Server Profile<i class="fa-solid fa-pen"></i></p>
+          <p>Hide Muted Channels <input type="checkbox" /></p>
+        </div>
+      </div>
+    </label>
+
+    <div class="channels-div">
+      <div class="sub-channels-section">
+        <label for="category-1-checkbox">
+          <div class="category-div">
+            <span class="category">
+              <i class="fa-solid fa-chevron-down"></i>
+              GEEKS COMMUNITY</span>
+            <span class="plus">+</span>
+            <input type="checkbox" id="category-1-checkbox" checked />
+          </div>
+        </label>
+        <a class="channels channels-active"># community-announcements</a>
+        <a class="channels" href="off-topic.html#last-message"># off-topic-discussions</a>
+      </div>
+
+      <div class="sub-channels-section">
+        <label for="category-2-checkbox">
+          <div class="category-div">
+            <span class="category"><i class="fa-solid fa-chevron-down"></i> FRONTEND
+              DEVELOPMENT</span>
+            <span class="plus">+</span>
+            <input type="checkbox" id="category-2-checkbox" checked />
+          </div>
+        </label>
+        <a class="channels" href="frontend-announcements.html#last-message"># frontend-announcements</a>
+        <a class="channels" href="frontend-discussions.html#last-message"># frontend-discussions</a>
+      </div>
+    </div>
+
+    <div class="user-div">
+      <div class="user-overview">
+        <div class="user-img-div"><img src="Images/amr.jpg" /></div>
+        <div class="user-info">
+          <p class="user-name">amr</p>
+          <div class="user-status">
+            <p class="user-status-text">Online</p>
+            <p>amrx64</p>
+          </div>
+        </div>
+      </div>
+
+      <i class="fa-solid fa-microphone"><span class="tooltip">Turn Off Microphone</span></i>
+      <i class="fa-solid fa-headphones"><span class="tooltip">Deafen</span></i>
+      <i class="fa-solid fa-gear"><span class="tooltip">User Settings</span></i>
+    </div>
+  </section>
+
+  <section class="main-section">
+
+
+    <nav class="main-header">
+      <span class="channel-name"> <span class="hash">#</span> community-announcements</span>
+      <i class="fa-solid fa-pen-to-square"><span class="tooltip">Threads</span></i>
+      <i class="fa-solid fa-bell"><span class="tooltip">Notification Settings</span></i>
+      <i class="fa-solid fa-thumbtack"><span class="tooltip">Pinned Messages</span></i>
+      <label for="member-list-checkbox"><i class="fa-solid fa-user-large-slash"><span class="tooltip">Hide Member
+            List</span>
+          <input type="checkbox" id="member-list-checkbox" checked style="display: none;">
+        </i>
+
+      </label> <input placeholder="Search">
+      <i class="fa-solid fa-inbox circle af-red"><span class="tooltip">Inbox</span></i>
+      <i class="fa-solid fa-circle-info"><span class="tooltip">Help</span></i>
+    </nav>
+
+    <div class="main-section-grid">
+
+      <section class="messages-section">
+
+        <div class="chat">
+          <div class="chat-header">
+            <div class="chat-hash">#</div>
+            <p class="chat-title">Welcome to #community-announcements!</p>
+            <p class="chat-desc">This is the start of #community-announcements channel.</p>
+          </div>
+
+          <div class="message">
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <div class="message-img"><img src="Images/moamen.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">Moamen</span>
+                <span class="message-date">7/25/2024 11:14 PM</span>
+              </div>
+              <div class="message-text">
+                <p>هنا هنزل أي أعلانات مهمة خاصة بالـcommunity.</p>
+              </div>
+              <div class="message-media"></div>
+              <div class="message-reactions">
+                <span>❤️ 4</span> <span>👍 2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="message">
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <div class="message-img"><img src="Images/moamen.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">Moamen</span>
+                <span class="message-date">7/25/2024 11:14 PM</span>
+              </div>
+              <div class="message-text">
+                <p>+ اللي مش هيحل الشيت هيتفلتر🔪😠</p>
+              </div>
+              <div class="message-media"></div>
+              <div class="message-reactions">
+              </div>
+            </div>
+          </div>
+
+          <div class="message">
+
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="message-img"><img src="Images/amr.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">amr</span>
+                <span class="message-date">7/25/2024 11:15 PM</span>
+              </div>
+              <div class="message-text">
+                <p>هنعمل ميتنج بإذن الله بكرا الساعة ستة الا تلت الصبح</p>
+                <p>ضروري كله يحضر</p>
+              </div>
+              <div class="message-media"></div>
+              <div class="message-reactions">
+                <span>😧 5</span>
+
+              </div>
+            </div>
+          </div>
+          <div class="message">
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <div class="message-img"><img src="Images/moamen.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">Moamen</span>
+                <span class="message-date">7/25/2024 11:15 PM</span>
+              </div>
+              <div class="message-text">
+                <p>+ اللي مش هيحضر هيتفلتر🔪😠</p>
+              </div>
+              <div class="message-media"></div>
+              <div class="message-reactions">
+              </div>
+            </div>
+          </div>
+
+          <div class="message" id="last-message">
+
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="message-img"><img src="Images/mazen.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">mazen</span>
+                <span class="message-date">7/25/2024 11:16 PM</span>
+              </div>
+              <div class="message-text">
+
+              </div>
+              <div class="message-media">
+                <video src="Images/vid1.mp4" controls></video>
+              </div>
+              <div class="message-reactions">
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="message">
+            <div class="message-reply"><img src="/Images/moamen.jpg">
+              <span class="message-reply-name">@momenkhalaf</span>
+              <span class="message-reply-text">🔪😠اللي مش هيحل الشيت هيتفلتر</span>
+            </div>
+
+
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+
+          </div>
+
+            <div class="message-img"><img src="Images/amr.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">amr</span>
+                <span class="message-date">25/7/2024 6:21 PM </span>
+              </div>
+              <div class="message-text">
+                <p>الـextension ده حلو أوي للـauto complete وبيعمل اقتراحات حلوة وممكن تخليه يعملك اللي انت عايزه في أي
+                  جزء من الكود وتقدر تخليه يشرحلك الكود بانه يضيف comments لكل جزء. حاسه هيفيد جدًا معانا بالذات مع
+                  الـjs </p>
+              </div>
+              <div class="message-media"><video src="Images/meme1.mp4" controls></video></div>
+              <div class="message-reactions">
+                <span>❤️ 4</span>
+                <span>👍 1</span>
+              </div>
+            </div>
+          </div> -->
+
+
+
+
+        </div>
+        <div class="message-bar">
+
+
+          <label for="#plus-checkbox">
+            <i class="fa-solid fa-circle-plus plus-button">
+              <input type="checkbox" id="#plus-checkbox" />
+              <div class="plus-menu">
+                <p><i class="fa-solid fa-file-arrow-up"></i>Upload a File</p>
+                <p><i class="fa-solid fa-pen-to-square"></i>Create Thread</p>
+                <p><i class="fa-solid fa-square-poll-horizontal"></i>Create Poll</p>
+                <p><i class="fa-solid fa-table-cells-large"></i>Use Apps</p>
+                <p><i class="fa-solid fa-rocket"></i>Start Activity</p>
+
+              </div>
+            </i>
+          </label>
+          <textarea placeholder="Message #off-topic-discussions"></textarea>
+          <i class="fa-solid fa-gift"></i>
+          <i class="fa-gif">GIF</i>
+          <i class="fa-solid fa-note-sticky"></i>
+          <i class="fa-solid fa-face-smile"></i>
+        </div>
+      </section>
+
+      <section class="members-section">
+
+        <p class="role-text">FRONTEND DEVELOPERS - 3</p>
+
+
+        <!-- amr -->
+        <div class="member-container">
+          <div class="member-img-container ">
+            <div class="member-img member-online"><img src="Images/amr.jpg" /></div>
+            <div class="member-overview">
+              <div class="upper-overview" style="background-image: url('Images/amr-back.jpg'); ">
+                <div class="member-img-overview member-online"><img src="Images/amr.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">amr</p>
+                <p class="member-username">amrx64</p>
+
+                <p class="member-bio">hey there, tell me about your day. And remember that you are awesome</p>
+                <div class="roles">
+                  <p class="role bf-orange">Admin</p>
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <button><i class="fa-solid fa-pen"></i> Edit Profile</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="member-info">
+            <p class="member-name fc-orange">amr <i class="fa-solid fa-crown fs-12"></i></p>
+            <span class="member-status member-status-active">qué linda eres</span>
+          </div>
+        </div>
+
+
+        <!-- moamen -->
+        <div class="member-container">
+          <div class="member-img-container">
+            <div class="member-img member-online-phone"><img src="Images/moamen.jpg" /></div>
+            <div class="member-overview">
+              <div class="upper-overview">
+                <div class="member-img-overview member-online"><img src="Images/moamen.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">Moamen</p>
+                <p class="member-username">moamen7halaf</p>
+                <div class="matual">2 Mutual Friends &#x2022; 1 Matual Servers</div>
+                <p class="member-bio">https://github.com/Moamen-Khalaf</p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @Moamen">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">Moamen</p>
+            <span class="member-status">اللي مش هيحل هيتفلتر</span>
+          </div>
+        </div>
+
+
+        <!-- shahd -->
+        <div class="member-container">
+          <div class="member-img-container">
+            <div class="member-img member-idle"><img src="Images/shahd.jpg" /></div>
+
+            <div class="member-overview">
+              <div class="upper-overview" style="background-image:url('Images/owl.png') ;">
+                <div class="member-img-overview member-idle"><img src="Images/shahd.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">Shahd</p>
+                <p class="member-username">shahd221b</p>
+                <div class="matual">2 Mutual Friends &#x2022; 1 Matual Servers</div>
+                <p class="member-bio">Ick</p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @Shahd">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">Shahd</p>
+            <span class="member-status member-status-active">اللهم الخلاص</span>
+          </div>
+        </div>
+
+        <p class="role-text">OFFLINE - 6</p>
+
+        <!-- habiba -->
+        <div class="member-container member-offline">
+          <div class="member-img-container">
+            <div class="member-img"><img src="Images/habiba.jpg" /></div>
+            <div class="member-overview">
+              <div class="upper-overview">
+                <div class="member-img-overview"><img src="Images/habiba.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">Habiba</p>
+                <p class="member-username">boba_1875</p>
+                <div class="matual">1 Matual Servers</div>
+                <p class="member-bio"></p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @Habiba">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">Habiba</p>
+            <span class="member-status"></span>
+          </div>
+        </div>
+
+        <!-- mazen -->
+        <div class="member-container member-offline">
+          <div class="member-img-container">
+            <div class="member-img"><img src="Images/mazen.jpg" /></div>
+            <div class="member-overview">
+              <div class="upper-overview">
+                <div class="member-img-overview"><img src="Images/mazen.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">mazen_3lwany</p>
+                <p class="member-username">mazen_3lwany</p>
+                <div class="matual">2 Mutual Friends &#x2022; 1 Matual Servers</div>
+                <p class="member-bio"></p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @mazen_3lwany">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">mazen_3lwany</p>
+            <span class="member-status"></span>
+          </div>
+        </div>
+
+        <!-- moatasem -->
+        <div class="member-container member-offline">
+          <div class="member-img-container">
+            <div class="member-img "><img src="Images/moatasem.jpg" /></div>
+
+            <div class="member-overview">
+              <div class="upper-overview">
+                <div class="member-img-overview"><img src="Images/moatasem.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">Moatasem</p>
+                <p class="member-username">moatasem2569</p>
+                <div class="matual">5 Mutual Friends &#x2022; 2 Matual Servers</div>
+                <p class="member-bio"></p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @Moatasem">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">Moatasem</p>
+            <span class="member-status"></span>
+          </div>
+        </div>
+
+
+        <!-- mohamed -->
+        <div class="member-container member-offline">
+          <div class="member-img-container">
+            <div class="member-img"><img src="Images/mohamed.jpg" /></div>
+
+            <div class="member-overview">
+              <div class="upper-overview">
+                <div class="member-img-overview"><img src="Images/mohamed.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">Mohamed Mostafa</p>
+                <p class="member-username">mohamedmostafa_97539</p>
+                <div class="matual">2 Mutual Friends &#x2022; 1 Matual Servers</div>
+                <p class="member-bio"></p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @Mohamed Mostafa">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">Mohamed Mostafa</p>
+            <span class="member-status"></span>
+          </div>
+        </div>
+
+        <!-- sara -->
+        <div class="member-container member-offline">
+          <div class="member-img-container">
+            <div class="member-img"><img src="Images/sara.jpg" /></div>
+
+            <div class="member-overview">
+              <div class="upper-overview">
+                <div class="member-img-overview"><img src="Images/sara.jpg" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">Sara_Yasser</p>
+                <p class="member-username">sara_yasser.</p>
+                <div class="matual">1 Matual Servers</div>
+                <p class="member-bio"></p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @Sara_Yasser">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">Sara_Yasser</p>
+            <span class="member-status"></span>
+          </div>
+        </div>
+
+        <!-- pablo  -->
+        <div class="member-container member-offline">
+          <div class="member-img-container">
+            <div class="member-img"><img src="Images/pablo.jpg" /></div>
+
+            <div class="member-overview">
+              <div class="upper-overview">
+                <div class="member-img-overview"><img src="Images/pablo.webp" /></div>
+              </div>
+              <div class="lower-overview">
+                <p class="member-name">Pablo</p>
+                <p class="member-username">pablo_64</p>
+                <div class="matual">1 Matual Servers</div>
+                <p class="member-bio"></p>
+                <div class="roles">
+                  <p class="role bf-yellow">Frontend Developers</p>
+                </div>
+                <input type="text" placeholder="Message @Pablo">
+              </div>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <p class="member-name fc-yellow">Pablo</p>
+            <span class="member-status"></span>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+      </section>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

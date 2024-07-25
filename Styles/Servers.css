@@ -1,0 +1,75 @@
+.servers-section {
+    background-color: #1e1f22;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    width: 75px;
+    overflow-y: scroll;
+    display: grid;
+    justify-content: center;
+    padding-top: 10px;
+  }
+
+.servers-section::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+
+  .servers-section hr {
+    width: 80%;
+    height: 0px;
+    border-color: #414346;
+  }
+  .pfp {
+      width: 48px;
+      height: 48px;
+      border-radius: 25px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.2s;
+      box-shadow: 0px 0px 5px rgba(255, 255, 255, 0);
+      color: white;
+      font-size: 26px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #313338;
+  
+  }
+  .pfp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+  
+  .pfp:before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 10px;
+    left: -16px;
+    background-color: white;
+    border-radius: 5px;
+    opacity: 0.5;
+    transition: 0.2s;
+    
+  }
+  
+  .pfp:hover {
+    border-radius: 10px;
+    opacity: 1;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+    background-color: #5865f2;
+  }
+  .pfp:hover::before {
+    height: 40px;  opacity: 1;
+  }
+  .pfp-active {
+    border-radius: 10px;
+    opacity: 1;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+    background-color: #5865f2;
+  }

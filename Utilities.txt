@@ -1,0 +1,31 @@
+          <div class="message">
+            <div class="message-reply"><img src="">
+              <span class="message-reply-name"></span>
+              <span class="message-reply-text"></span>
+            </div>
+
+
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+
+          </div>
+
+            <div class="message-img"><img src=""></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name"></span>
+                <span class="message-date"></span>
+              </div>
+              <div class="message-text">
+                <p></p>
+              </div>
+              <div class="message-media"></div>
+              <div class="message-reactions">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>

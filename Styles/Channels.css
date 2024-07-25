@@ -1,0 +1,238 @@
+.channels-section {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 75px;
+  width: 240px;
+}
+.channels-section *::selection{
+  background: none;
+}
+.server-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: white;
+  font-weight: bold;
+  padding: 15px 15px;
+  cursor: pointer;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  background-color: #2b2d31;
+  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+.server-name:hover {
+  background-color: #35373c;
+}
+#server-menu-checkbox {
+  display: none;
+}
+.server-menu {
+  position: absolute;
+  /* background-color: #2b2d31; */
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--dark-color);
+  display: none;
+  padding: 7px;
+  border-radius: 5px;
+  width: 85%;
+  color: var(--grey-text);
+  font-size: 14px;
+}
+.server-menu p {
+  margin: 0px;
+  padding: 7px 10px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.server-menu p:hover {
+  background-color: #5865f2;
+  color: white;
+}
+.server-menu hr {
+  border-color: #414346;
+}
+.server-menu input {
+  background-color: transparent;
+  margin: 0px;
+}
+
+.server-name .fa-xmark {
+  display: none;
+}
+
+.server-name:has(input:checked) .server-menu,
+.server-name:has(input:checked) .fa-xmark {
+  display: block;
+}
+.server-name:has(input:checked) .fa-chevron-down {
+  display: none;
+}
+
+.channels-div {
+  background-color: #2b2d31;
+  height: 100%;
+  overflow-y: scroll;
+}
+.channels-div::-webkit-scrollbar {
+  width: 5px;
+}
+
+.channels-div::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.channels-div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #00000042;
+}
+
+.sub-channels-section {
+  padding: 10px 5px;
+  box-sizing: border-box;
+}
+.category-div {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.category-div:hover{
+  color: white;
+}
+.category {
+  margin-top: 0;
+  color: var(--grey-text);
+  font-size: 13px;
+  flex: 1;
+}
+.sub-channels-section input {
+  display: none;
+}
+.sub-channels-section:has(input:not(:checked)) .channels {
+  display: none;
+}
+.sub-channels-section:has(input:not(:checked)) .fa-chevron-down {
+  transform: rotateZ(-90deg);
+}
+.plus {
+  margin: 0px;
+  color: var(--grey-text);
+  font-size: 20px;
+}
+
+.channels {
+  display: block;
+  color: #93979e;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px 0px;
+  border-radius: 4px;
+  transition: all 0.1s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.channels:hover,
+.channels-active {
+  background-color: var(--hover-color);
+  color: white;
+}
+.category-div:hover .category {
+  color: white;
+}
+
+.user-div {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  color: white;
+  padding: 5px 5px;
+  background-color: #232428;
+  font-size: 17px;
+}
+.user-div i {
+  padding: 6px 8px;
+  border-radius: 4px;
+  position: relative;
+}
+.user-div i:hover .tooltip {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+.user-div i .tooltip {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.7);
+}
+.user-overview {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  flex: 1;
+  border-radius: 5px;
+  padding: 3px 0px;
+}
+.user-div > * {
+  cursor: pointer;
+}
+.user-div > *:hover {
+  background-color: var(--hover-color);
+}
+.user-img-div {
+  position: relative;
+  height: 32px;
+  width: 32px;
+}
+.user-img-div img {
+  width: inherit;
+  height: inherit;
+  border-radius: 25px;
+}
+
+.user-img-div::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  bottom: 0px;
+  right: 0px;
+  border-radius: 10px;
+  border: 3.5px solid #232428;
+  box-sizing: border-box;
+  background-color: limegreen;
+}
+
+.user-name {
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: -3px;
+}
+.user-status {
+  font-size: 12px;
+  color: var(--grey-text);
+  height: 15px;
+    margin: 0;
+  overflow-y: hidden;
+}
+.user-status-text {
+  transition: 0.2s;
+}
+.user-div:hover .user-status-text {
+  margin-top: -21px;
+}
