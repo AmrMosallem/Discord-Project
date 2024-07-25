@@ -55,6 +55,9 @@ a {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 120;
 }
+.note img{
+  width: 100px;
+}
 .note div{
   background-color:#313338;
   color: var(--light-color);
