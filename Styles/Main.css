@@ -1,8 +1,4 @@
 .main-section {
-  position: fixed;
-  left: 315px;
-  height: 100%;
-  width: calc(100% - 315px);
   background-color: #313338;
 }
 .main-section:has(#member-list-checkbox:checked) .main-section-grid {
@@ -43,7 +39,7 @@
 }
 .hash {
   font-size: 28px;
-  color: var(--grey-text);
+  color: var(--grey-color);
   font-weight: normal;
 }
 .channel-name {
@@ -75,6 +71,8 @@
   transform: translateX(-50%) scale(1);
   opacity: 1;
 }
+
+
 .main-section-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -101,7 +99,7 @@
   display: block;
 }
 .role-text {
-  color: var(--grey-text);
+  color: var(--grey-color);
   font-size: 13px;
   font-weight: 600;
   margin-top: 20px;
@@ -190,7 +188,7 @@
 }
 .member-status {
   display: block;
-  color: var(--grey-text);
+  color: var(--grey-color);
   font-size: 12px;
 }
 
@@ -206,8 +204,8 @@
   background-color: var(--dark-color);
   right: 210px;
   width: 300px;
-  height: 90%;
-  top: 50px;
+  height: 80%;
+  top: 70px;
   border-radius: 8px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
@@ -216,7 +214,19 @@
   /* transition-delay: 0.5s; */
   z-index: 10;
   cursor: default;
+  overflow-y: auto;
 }
+.member-overview::-webkit-scrollbar {
+  width: 5px;
+}
+.member-overview::-webkit-scrollbar-track{
+  background: none;
+}
+.member-overview::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #2b2d31;
+}
+
 .upper-overview {
   background-size: cover;
   background-repeat: no-repeat;
@@ -224,7 +234,6 @@
   background-color: #96805a;
   height: 30%;
   border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
   position: relative;
 }
 .member-img-overview {
@@ -264,6 +273,7 @@
 .roles {
   margin-top: 10px;
   display: flex;
+  justify-content: left;
   gap: 10px;
 }
 .role {
@@ -497,7 +507,7 @@
 .message-date {
   font-size: 12px;
   margin-left: 5px;
-  color: var(--grey-text);
+  color: var(--grey-color);
 }
 .message-content {
   display: flex;
@@ -518,7 +528,7 @@
   border: 1px solid transparent;
 }
 .message-reactions > *:hover {
-  border-color: var(--grey-text);
+  border-color: var(--grey-color);
   background-color: transparent;
 }
 
@@ -565,7 +575,7 @@
   left: 75px;
   font-size: 14px;
   width: calc(100% - 95px);
-  color: var(--grey-text);
+  color: var(--grey-color);
   display: flex;
   align-items: center;
   gap: 5px;
@@ -577,8 +587,8 @@
   left: -35px;
   width: 28px;
   height: 13px;
-  border-top: 2.5px solid var(--grey-text);
-  border-left: 2.5px solid var(--grey-text);
+  border-top: 2.5px solid var(--grey-color);
+  border-left: 2.5px solid var(--grey-color);
   border-top-left-radius: 10px;
   opacity: 0.5;
 }

@@ -1,9 +1,7 @@
 .servers-section {
     background-color: #1e1f22;
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    width: 75px;
+    position: relative;
+    box-sizing: border-box;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;

@@ -3,6 +3,12 @@ body {
     sans-serif, "Apple Symbols";
   margin: 0;
   background-color: rgb(48, 49, 56);
+  display: grid;
+  grid-template-columns: 75px 240px 1fr;
+  overflow: hidden;
+}
+body >*{
+  height: 100dvh;
 }
 p {
   margin: 0;
@@ -12,7 +18,7 @@ a {
   text-decoration: none;
 }
 :root {
-  --grey-text: #93979e;
+  --grey-color: #93979e;
   --hover-color: rgba(255, 255, 255, 0.1);
   --dark-color: #111214;
   --light-color: #b5bac1;
