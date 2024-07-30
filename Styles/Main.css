@@ -193,9 +193,9 @@
   color: var(--grey-color);
   font-size: 12px;
 }
-.member-container> input {
+.member-container .focus-button {
   position: fixed;
-  top: -100%;
+  top: -100px;
   opacity: 0;
 }
 .member-container:has(input:focus) .member-overview {

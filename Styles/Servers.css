@@ -19,8 +19,10 @@
   border-color: #414346;
 }
 .pfp {
-  width: 47px;
+  min-width: 47px;
   min-height: 47px;
+width: 47px;
+  height: 47px;
   border-radius: 25px;
   margin-top: 5px;
   margin-bottom: 5px;
