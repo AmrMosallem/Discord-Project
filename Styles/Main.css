@@ -193,7 +193,7 @@
   color: var(--grey-color);
   font-size: 12px;
 }
-.member-container .focus-button {
+.focus-button {
   position: fixed;
   top: -100px;
   opacity: 0;
