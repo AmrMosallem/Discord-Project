@@ -374,7 +374,7 @@
   color: #383a40;
   margin: 0;
 }
-.message-bar textarea {
+.message-bar input {
   flex: 1;
   display: flex;
   align-items: center;
@@ -389,10 +389,10 @@
   color: var(--light-color);
   font-size: 16px;
 }
-.message-bar textarea::-webkit-scrollbar {
+.message-bar input::-webkit-scrollbar {
   display: none;
 }
-.message-bar textarea::placeholder {
+.message-bar input::placeholder {
   color: rgba(255, 255, 255, 0.2);
   font-family: "gg sans";
 }

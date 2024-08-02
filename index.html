@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="Styles/Servers.css" />
   <link rel="stylesheet" href="Styles/Channels.css" />
   <link rel="stylesheet" href="Styles/Main.css" />
-  <link rel="stylesheet" href="Styles/Members.css" />
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -20,8 +20,9 @@
   <div class="note">
     <div>
       <p class="note-title">Note</p>
-      <p>This website is not optimized for small screens (e.g., mobile phones). For the best experience, please use a larger screen (e.g., laptop) or rotate your mobile phone's screen.</p>
-        <img src="Images/rotate.gif" >
+      <p>This website is not optimized for small screens (e.g., mobile phones). For the best experience, please use a
+        larger screen (e.g., laptop) or rotate your mobile phone's screen.</p>
+      <img src="Images/rotate.gif">
       <label for="note-checkbox"><span>OK</span></label>
       <input type="checkbox" id="note-checkbox">
     </div>
@@ -79,7 +80,7 @@
           </div>
         </label>
         <a class="channels channels-active"># community-announcements</a>
-        <a class="channels" href="off-topic.html#last-message"># off-topic-discussions</a>
+        <a class="channels" href="off-topic.html"># off-topic-discussions</a>
       </div>
 
       <div class="sub-channels-section">
@@ -91,19 +92,19 @@
             <input type="checkbox" id="category-2-checkbox" checked />
           </div>
         </label>
-        <a class="channels" href="frontend-announcements.html#last-message"># frontend-announcements</a>
-        <a class="channels" href="frontend-discussions.html#last-message"># frontend-discussions</a>
+        <a class="channels" href="frontend-announcements.html"># frontend-announcements</a>
+        <a class="channels" href="frontend-discussions.html"># frontend-discussions</a>
       </div>
     </div>
 
     <div class="user-div">
       <div class="user-overview">
-        <div class="user-img-div"><img src="Images/amr.jpg" /></div>
+        <div class="user-img-div"><img src="Images/mazen.jpg" id="user-img"/></div>
         <div class="user-info">
-          <p class="user-name">amr</p>
+          <p id="user-name">mazen</p>
           <div class="user-status">
-            <p class="user-status-text">idc anymore</p>
-            <p>amrx64</p>
+            <p class="user-status-text">online</p>
+            <p>mazen_3lwany</p>
           </div>
         </div>
       </div>
@@ -136,7 +137,7 @@
 
       <section class="messages-section">
 
-        <div class="chat">
+        <div class="chat" id="chat">
           <div class="chat-header">
             <div class="chat-hash">#</div>
             <p class="chat-title">Welcome to #community-announcements!</p>
@@ -241,7 +242,7 @@
             </div>
           </div>
 
-          <div class="message" id="last-message">
+          <div class="message">
 
             <div class="message-icons">
               <i class="fa-solid fa-face-smile"></i>
@@ -266,43 +267,6 @@
             </div>
           </div>
 
-          <!-- <div class="message">
-            <div class="message-reply"><img src="/Images/moamen.jpg">
-              <span class="message-reply-name">@momenkhalaf</span>
-              <span class="message-reply-text">🔪😠اللي مش هيحل الشيت هيتفلتر</span>
-            </div>
-
-
-            <div class="message-icons">
-              <i class="fa-solid fa-face-smile"></i>
-              <i class="fa-solid fa-reply"></i>
-              <i class="fa-solid fa-share"></i>
-              <i class="fa-solid fa-ellipsis"></i>
-
-          </div>
-
-            <div class="message-img"><img src="Images/amr.jpg"></div>
-            <div class="message-content">
-              <div class="message-header">
-                <span class="message-name">amr</span>
-                <span class="message-date">25/7/2024 6:21 PM </span>
-              </div>
-              <div class="message-text">
-                <p>الـextension ده حلو أوي للـauto complete وبيعمل اقتراحات حلوة وممكن تخليه يعملك اللي انت عايزه في أي
-                  جزء من الكود وتقدر تخليه يشرحلك الكود بانه يضيف comments لكل جزء. حاسه هيفيد جدًا معانا بالذات مع
-                  الـjs </p>
-              </div>
-              <div class="message-media"><video src="Images/meme1.mp4" controls></video></div>
-              <div class="message-reactions">
-                <span>❤️ 4</span>
-                <span>👍 1</span>
-              </div>
-            </div>
-          </div> -->
-
-
-
-
         </div>
         <div class="message-bar">
 
@@ -320,7 +284,7 @@
               </div>
             </i>
           </label>
-          <textarea placeholder="Message #off-topic-discussions"></textarea>
+          <input placeholder="Message #off-topic-discussions" id="message-input">
           <i class="fa-solid fa-gift"></i>
           <i class="fa-gif">GIF</i>
           <i class="fa-solid fa-note-sticky"></i>
@@ -333,40 +297,37 @@
         <p class="role-text">FRONTEND DEVELOPERS - 2</p>
 
 
-        <!-- amr -->
-        <label for="focus-button1">
-          <div class="member-container">
 
-            <div class="member-img-container ">
-              <div class="member-img member-online"><img src="Images/amr.jpg" /></div>
+        <!-- mazen -->
+        <label for="focus-button3">
+          <div class="member-container ">
+            <div class="member-img-container">
+              <div class="member-img member-online"><img src="Images/mazen.jpg" /></div>
               <div class="member-overview">
-                <div class="upper-overview" style="background-image: url('Images/amr-back.jpg'); ">
-                  <div class="member-img-overview member-online"><img src="Images/amr.jpg" /></div>
+                <div class="upper-overview">
+                  <div class="member-img-overview"><img src="Images/mazen.jpg" /></div>
                 </div>
                 <div class="lower-overview">
-                  <p class="member-name">amr</p>
-                  <p class="member-username">amrx64</p>
-
-                  <p class="member-bio">hey there, tell me about your day. And remember that you are awesome</p>
+                  <p class="member-name">mazen_3lwany</p>
+                  <p class="member-username">mazen_3lwany</p>
+                  <div class="matual">2 Mutual Friends &#x2022; 1 Matual Servers</div>
+                  <p class="member-bio"></p>
                   <div class="roles">
-                    <p class="role bf-orange">Admin</p>
                     <p class="role bf-yellow">Frontend Developers</p>
                   </div>
-                  <button><i class="fa-solid fa-pen"></i> Edit Profile</button>
+                  <input type="text" placeholder="Message @mazen_3lwany">
                 </div>
               </div>
-
             </div>
 
             <div class="member-info">
-              <p class="member-name fc-orange">amr <i class="fa-solid fa-crown fs-12"></i></p>
-              <span class="member-status member-status-active">idc anymore</span>
+              <p class="member-name fc-yellow">mazen_3lwany</p>
+              <span class="member-status"></span>
             </div>
-            <input type="checkbox" id="focus-button1" class="focus-button">
 
+            <input type="checkbox" id="focus-button3" class="focus-button">
           </div>
         </label>
-
         <!-- moamen -->
         <label for="focus-button2">
           <div class="member-container">
@@ -402,37 +363,39 @@
           OFFLINE - 2
         </p>
 
-        <!-- mazen -->
-        <label for="focus-button3">
+  
+        <!-- amr -->
+        <label for="focus-button1">
           <div class="member-container member-offline">
-            <div class="member-img-container">
-              <div class="member-img"><img src="Images/mazen.jpg" /></div>
+            <div class="member-img-container  ">
+              <div class="member-img"><img src="Images/amr.jpg" /></div>
               <div class="member-overview">
-                <div class="upper-overview">
-                  <div class="member-img-overview"><img src="Images/mazen.jpg" /></div>
+                <div class="upper-overview" style="background-image: url('Images/amr-back.jpg'); ">
+                  <div class="member-img-overview member-online"><img src="Images/amr.jpg" /></div>
                 </div>
                 <div class="lower-overview">
-                  <p class="member-name">mazen_3lwany</p>
-                  <p class="member-username">mazen_3lwany</p>
-                  <div class="matual">2 Mutual Friends &#x2022; 1 Matual Servers</div>
-                  <p class="member-bio"></p>
+                  <p class="member-name">amr</p>
+                  <p class="member-username">amrx64</p>
+
+                  <p class="member-bio">hey there, tell me about your day. And remember that you are awesome</p>
                   <div class="roles">
+                    <p class="role bf-orange">Admin</p>
                     <p class="role bf-yellow">Frontend Developers</p>
                   </div>
-                  <input type="text" placeholder="Message @mazen_3lwany">
+                  <button><i class="fa-solid fa-pen"></i> Edit Profile</button>
                 </div>
               </div>
+
             </div>
 
             <div class="member-info">
-              <p class="member-name fc-yellow">mazen_3lwany</p>
-              <span class="member-status"></span>
+              <p class="member-name fc-orange">amr <i class="fa-solid fa-crown fs-12"></i></p>
+              <span class="member-status member-status-active">idc anymore</span>
             </div>
+            <input type="checkbox" id="focus-button1" class="focus-button">
 
-            <input type="checkbox" id="focus-button3" class="focus-button">
           </div>
         </label>
-
 
         <!-- moatasem -->
         <label for="focus-button4">
@@ -469,6 +432,8 @@
 
     </div>
   </section>
+  <script src="Script/Message.js"></script>
+
 </body>
 
 </html>
