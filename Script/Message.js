@@ -18,6 +18,7 @@ document
         apm = hour > 12 ? "PM" : "AM";
       hour %= 12;
       hour = hour ? hour : 12;
+      minute = minute < 10 ? "0" + minute : minute;
     let userImg=document.getElementById("user-img").src,
     userName=document.getElementById("user-name").innerHTML;
 
