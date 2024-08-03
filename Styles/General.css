@@ -9,15 +9,14 @@ body {
 }
 body > * {
   position: relative;
-  top: 0px;
-  bottom: 0px;
+height: 100dvh;
 }
 #left-section {
   display: grid;
   grid-template-columns: 75px 1fr;
 }
 #left-section > * {
-  max-height: 100dvh;
+  max-height: 100vh;
 }
 p {
   margin: 0;
