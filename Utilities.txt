@@ -1,3 +1,4 @@
+Message HTML Structure
           <div class="message">
             <div class="message-reply"><img src="">
               <span class="message-reply-name"></span>
@@ -29,3 +30,25 @@
               </div>
             </div>
           </div>
+
+Message JS Object
+let message = {
+  imgSrc,
+  userName,
+  date,
+  messageText,
+  replyImgSrc,
+  replyText,
+  messageReactions,
+  getDate() {
+    let date = new Date();
+    let day = date.getDate(),
+      month = date.getMonth() + 1,
+      year = date.getFullYear(),
+      hour = date.getHours() % 12 ? date.getHours() % 12 : 12,
+      min =
+        date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes(),
+      apm = date.getHours() < 12 ? "AM" : "PM";
+    return `${day}/${month}/${year} ${hour}:${min} ${apm}`;
+  },
+};

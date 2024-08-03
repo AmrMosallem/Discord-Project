@@ -7,7 +7,7 @@ document
   .addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       if (document.getElementById("last-message"))
-        document.getElementById("last-message").id = "";
+        document.getElementById("last-message").removeAttribute("id");
       let message = document.getElementById("message-input").value;
       let now = new Date(),
         month = now.getMonth() + 1,
