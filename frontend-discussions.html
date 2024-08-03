@@ -16,104 +16,106 @@
 </head>
 
 <body>
-  <section class="servers-section">
-    <div class="pfp"><i class="fa-brands fa-discord"></i></div>
-    <hr />
-    <div class="pfp pfp-active"><img src="Images/server.jpg" /></div>
-    <div class="pfp"><img src="Images/pablo.jpg" /></div>
-    <div class="pfp"><img src="Images/pic1.jpg" /></div>
-    <div class="pfp"><img src="Images/pic2.jpg" /></div>
-    <div class="pfp"><img src="Images/pic3.jpg" /></div>
-    <div class="pfp"><img src="Images/pic4.jpg" /></div>
-    <div class="pfp"><img src="Images/pic5.jpg" /></div>
-    <div class="pfp"><img src="Images/pic6.jpg" /></div>
-    <div class="pfp"><img src="Images/pic7.jpg" /></div>
-  </section>
+  <div id="left-section">
+    <section id="servers-section" class="servers-section">
+      <div class="pfp"><i class="fa-brands fa-discord"></i></div>
+      <hr />
+      <div class="pfp pfp-active"><img src="Images/server.jpg" /></div>
+      <div class="pfp"><img src="Images/pablo.jpg" /></div>
+      <div class="pfp"><img src="Images/pic1.jpg" /></div>
+      <div class="pfp"><img src="Images/pic2.jpg" /></div>
+      <div class="pfp"><img src="Images/pic3.jpg" /></div>
+      <div class="pfp"><img src="Images/pic4.jpg" /></div>
+      <div class="pfp"><img src="Images/pic5.jpg" /></div>
+      <div class="pfp"><img src="Images/pic6.jpg" /></div>
+      <div class="pfp"><img src="Images/pic7.jpg" /></div>
+    </section>
 
-  <section class="channels-section">
-    <label for="server-menu-checkbox">
-      <div class="server-name">
-        <span>nerds' community</span>
-        <i class="fa-solid fa-chevron-down fs-12"></i>
-        <i class="fa-solid fa-xmark"></i>
-        <input type="checkbox" id="server-menu-checkbox" />
-        <div class="server-menu">
-          <p>Server Boost <i class="fa-solid fa-rocket"></i></p>
-          <hr />
-          <p>Invite People <i class="fa-solid fa-user-group"></i></p>
-          <p>Server Settings <i class="fa-solid fa-gear"></i></p>
-          <p>Create Channel <i class="fa-solid fa-circle-plus"></i></p>
-          <p>Create Category<i class="fa-solid fa-folder-plus"></i></p>
-          <p>Create Event<i class="fa-solid fa-calendar-plus"></i></p>
-          <p>App Directory<i class="fa-brands fa-sketch"></i></p>
-          <hr />
-          <p>Notification Settings<i class="fa-solid fa-bell"></i></p>
-          <p>Privacy Settings<i class="fa-solid fa-shield-halved"></i></p>
-          <hr />
-          <p>Edit Server Profile<i class="fa-solid fa-pen"></i></p>
-          <p>Hide Muted Channels <input type="checkbox" /></p>
+    <section id="channels-section" class="channels-section">
+      <label for="server-menu-checkbox">
+        <div class="server-name">
+          <span>nerds' community</span>
+          <i class="fa-solid fa-chevron-down fs-12"></i>
+          <i class="fa-solid fa-xmark"></i>
+          <input type="checkbox" id="server-menu-checkbox" />
+          <div class="server-menu">
+            <p>Server Boost <i class="fa-solid fa-rocket"></i></p>
+            <hr />
+            <p>Invite People <i class="fa-solid fa-user-group"></i></p>
+            <p>Server Settings <i class="fa-solid fa-gear"></i></p>
+            <p>Create Channel <i class="fa-solid fa-circle-plus"></i></p>
+            <p>Create Category<i class="fa-solid fa-folder-plus"></i></p>
+            <p>Create Event<i class="fa-solid fa-calendar-plus"></i></p>
+            <p>App Directory<i class="fa-brands fa-sketch"></i></p>
+            <hr />
+            <p>Notification Settings<i class="fa-solid fa-bell"></i></p>
+            <p>Privacy Settings<i class="fa-solid fa-shield-halved"></i></p>
+            <hr />
+            <p>Edit Server Profile<i class="fa-solid fa-pen"></i></p>
+            <p>Hide Muted Channels <input type="checkbox" /></p>
+          </div>
         </div>
-      </div>
-    </label>
+      </label>
 
-    <div class="channels-div">
-      <div class="sub-channels-section">
-        <label for="category-1-checkbox">
-          <div class="category-div">
-            <span class="category">
-              <i class="fa-solid fa-chevron-down"></i>
-              nerds' community</span>
-            <span class="plus">+</span>
-            <input type="checkbox" id="category-1-checkbox" checked />
-          </div>
-        </label>
-        <a class="channels" href="index.html"># community-announcements</a>
-        <a class="channels" href="off-topic.html"># off-topic-discussions</a>
-      </div>
+      <div class="channels-div">
+        <div class="sub-channels-section">
+          <label for="category-1-checkbox">
+            <div class="category-div">
+              <span class="category">
+                <i class="fa-solid fa-chevron-down"></i>
+                nerds' community</span>
+              <span class="plus">+</span>
+              <input type="checkbox" id="category-1-checkbox" checked />
+            </div>
+          </label>
+          <a class="channels" href="index.html"># community-announcements</a>
+          <a class="channels" href="off-topic.html"># off-topic-discussions</a>
+        </div>
 
-      <div class="sub-channels-section">
-        <label for="category-2-checkbox">
-          <div class="category-div">
-            <span class="category"><i class="fa-solid fa-chevron-down"></i> FRONTEND
-              DEVELOPMENT</span>
-            <span class="plus">+</span>
-            <input type="checkbox" id="category-2-checkbox" checked />
-          </div>
-        </label>
-        <a class="channels" href="frontend-announcements.html"># frontend-announcements</a>
-        <a class="channels channels-active" href="frontend-discussions.html"># frontend-discussions</a>
-      </div>
-    </div>
-
-    <div class="user-div">
-      <div class="user-overview">
-        <div class="user-img-div"><img src="Images/moamen.jpg" id="user-img" /></div>
-        <div class="user-info">
-          <p id="user-name">Moamen</p>
-          <div class="user-status">
-            <p class="user-status-text">Online</p>
-            <p>moamen7halaf</p>
-          </div>
+        <div class="sub-channels-section">
+          <label for="category-2-checkbox">
+            <div class="category-div">
+              <span class="category"><i class="fa-solid fa-chevron-down"></i> FRONTEND
+                DEVELOPMENT</span>
+              <span class="plus">+</span>
+              <input type="checkbox" id="category-2-checkbox" checked />
+            </div>
+          </label>
+          <a class="channels" href="frontend-announcements.html"># frontend-announcements</a>
+          <a class="channels channels-active"># frontend-discussions<i
+              class="fa-solid fa-arrow-right" id="show-main-section-button"></i></a>
         </div>
       </div>
 
-      <i class="fa-solid fa-microphone"><span class="tooltip">Turn Off Microphone</span></i>
-      <i class="fa-solid fa-headphones"><span class="tooltip">Deafen</span></i>
-      <i class="fa-solid fa-gear"><span class="tooltip">User Settings</span></i>
-    </div>
-  </section>
+      <div class="user-div">
+        <div class="user-overview">
+          <div class="user-img-div"><img src="Images/moamen.jpg" id="user-img" /></div>
+          <div class="user-info">
+            <p id="user-name">Moamen</p>
+            <div class="user-status">
+              <p class="user-status-text">Online</p>
+              <p>moamen7halaf</p>
+            </div>
+          </div>
+        </div>
 
-  <section class="main-section">
-
+        <i class="fa-solid fa-microphone"><span class="tooltip">Turn Off Microphone</span></i>
+        <i class="fa-solid fa-headphones"><span class="tooltip">Deafen</span></i>
+        <i class="fa-solid fa-gear"><span class="tooltip">User Settings</span></i>
+      </div>
+    </section>
+  </div>
+  <section id="main-section" class="main-section">
 
     <nav class="main-header">
+      <i class="fa-solid fa-arrow-left" id="show-left-section-button"></i>
       <span class="channel-name"> <span class="hash">#</span> frontend-discussions</span>
       <i class="fa-solid fa-pen-to-square"><span class="tooltip">Threads</span></i>
       <i class="fa-solid fa-bell"><span class="tooltip">Notification Settings</span></i>
       <i class="fa-solid fa-thumbtack"><span class="tooltip">Pinned Messages</span></i>
       <label for="member-list-checkbox"><i class="fa-solid fa-user-group"><span class="tooltip">Member
             List</span>
-          <input type="checkbox" id="member-list-checkbox" checked style="display: none;">
+          <input type="checkbox" id="member-list-checkbox" style="display: none;">
         </i>
 
       </label> <input placeholder="Search">
@@ -440,7 +442,7 @@
     </div>
   </section>
   <script src="Script/Message.js"></script>
-
+  <script src="Script/Mobile.js"></script>
 </body>
 
 </html>

@@ -208,7 +208,7 @@
   pointer-events: none;
   position: absolute;
   background-color: var(--dark-color);
-  right: 210px;
+  right: 10%;
   width: 300px;
   height: clamp(200px, 70%, 500px);
   top: 70px;
@@ -385,6 +385,7 @@
   box-sizing: border-box;
   height: 42px;
   max-height: 100px;
+  width: 0px;
   background-color: transparent;
   color: var(--light-color);
   font-size: 16px;
@@ -634,4 +635,27 @@
 .message-media audio {
   height: 30px;
   min-width: 40%;
+}
+#show-left-section-button{
+  display: none;
+}
+@media(max-width:499px){
+  .main-header i:not(.fa-user-group), .main-header input{
+    display: none;
+  }
+  .fa-user-group{
+    margin-right: 20px;
+  }
+  .main-section:has(#member-list-checkbox:checked) .main-section-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-section:has(#member-list-checkbox:checked) .members-section {
+    display: block;
+  }
+  .main-section:has(#member-list-checkbox:checked) .messages-section{
+    display: none;
+  }
+  #show-left-section-button{
+    display: block;
+  }
 }

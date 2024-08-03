@@ -16,7 +16,8 @@
 </head>
 
 <body>
-  <section class="servers-section">
+    <div id="left-section">
+    <section id="servers-section" class="servers-section">
     <div class="pfp"><i class="fa-brands fa-discord"></i></div>
     <hr />
     <div class="pfp pfp-active"><img src="Images/server.jpg" /></div>
@@ -30,7 +31,7 @@
     <div class="pfp"><img src="Images/pic7.jpg" /></div>
   </section>
 
-  <section class="channels-section">
+  <section id="channels-section" class="channels-section">
     <label for="server-menu-checkbox">
       <div class="server-name">
         <span>nerds' community</span>
@@ -80,7 +81,7 @@
             <input type="checkbox" id="category-2-checkbox" checked />
           </div>
         </label>
-        <a class="channels channels-active" href="frontend-announcements.html"># frontend-announcements</a>
+        <a class="channels channels-active"># frontend-announcements<i class="fa-solid fa-arrow-right" id="show-main-section-button"></i></a>
         <a class="channels" href="frontend-discussions.html"># frontend-discussions</a>
       </div>
     </div>
@@ -102,18 +103,19 @@
       <i class="fa-solid fa-gear"><span class="tooltip">User Settings</span></i>
     </div>
   </section>
-
-  <section class="main-section">
+    </div>
+<section id= "main-section"class="main-section">
 
 
     <nav class="main-header">
+      <i class="fa-solid fa-arrow-left" id="show-left-section-button"></i>
       <span class="channel-name"> <span class="hash">#</span> frontend-announcements</span>
       <i class="fa-solid fa-pen-to-square"><span class="tooltip">Threads</span></i>
       <i class="fa-solid fa-bell"><span class="tooltip">Notification Settings</span></i>
       <i class="fa-solid fa-thumbtack"><span class="tooltip">Pinned Messages</span></i>
       <label for="member-list-checkbox"><i class="fa-solid fa-user-group"><span class="tooltip">Member
             List</span>
-          <input type="checkbox" id="member-list-checkbox" checked style="display: none;">
+          <input type="checkbox" id="member-list-checkbox"  style="display: none;">
         </i>
 
       </label> <input placeholder="Search">
@@ -350,7 +352,7 @@
     </div>
   </section>
   <script src="Script/Message.js"></script>
-
+  <script src="Script/Mobile.js"></script>
 </body>
 
 </html>
