@@ -636,14 +636,15 @@
   height: 30px;
   min-width: 40%;
 }
-#show-left-section-button{
+#show-left-section-button {
   display: none;
 }
-@media(max-width:499px){
-  .main-header i:not(.fa-user-group), .main-header input{
+@media (max-width: 899px) {
+  .main-header i:not(.fa-user-group),
+  .main-header input {
     display: none;
   }
-  .fa-user-group{
+  .fa-user-group {
     margin-right: 20px;
   }
   .main-section:has(#member-list-checkbox:checked) .main-section-grid {
@@ -652,10 +653,10 @@
   .main-section:has(#member-list-checkbox:checked) .members-section {
     display: block;
   }
-  .main-section:has(#member-list-checkbox:checked) .messages-section{
+  .main-section:has(#member-list-checkbox:checked) .messages-section {
     display: none;
   }
-  #show-left-section-button{
+  #show-left-section-button {
     display: block;
   }
 }

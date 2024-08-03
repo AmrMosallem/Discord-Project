@@ -254,7 +254,7 @@
   display: none;
 }
 
-@media (max-width: 499px){
+@media (max-width: 899px){
   #show-main-section-button{
     display: block;
   }
