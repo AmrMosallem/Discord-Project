@@ -5,12 +5,14 @@ body {
   background-color: rgb(48, 49, 56);
   display: grid;
   grid-template-columns: 315px 1fr;
-  overflow: hidden;
+  overflow:hidden;
+  position: relative;
   height: 100dvh;
+
 }
 body > * {
   position: relative;
-height: 100%;
+  height: 100%;
 }
 #left-section {
   display: grid;
