@@ -14,6 +14,9 @@ body > * {
   display: grid;
   grid-template-columns: 75px 1fr;
 }
+#left-section > * {
+  max-height: 100dvh;
+}
 p {
   margin: 0;
   margin-bottom: 5px;
@@ -192,11 +195,10 @@ a {
 }
 
 @media (max-width: 499px) {
-
   .main-section {
     display: none;
   }
-  body{
+  body {
     grid-template-columns: 1fr;
   }
 }

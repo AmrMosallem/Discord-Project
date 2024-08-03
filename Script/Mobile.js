@@ -17,7 +17,7 @@ function myFunction(x) {
     // If media query matches
     mainSection.style.display = "block";
     leftSection.style.display = "grid";
-    leftSection.style.gridTemplateColumns = "75px 1fr";
+    
   } else {
     mainSection.style.display = "none";
   }
