@@ -2,6 +2,9 @@ body {
   font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
     sans-serif, "Apple Symbols";
   margin: 0;
+  background-image: url("../Images/wallpaper2.jpg");
+  background-size: cover;
+  background-position: bottom;
   background-color: rgb(48, 49, 56);
   display: grid;
   grid-template-columns: 315px 1fr;
@@ -105,7 +108,6 @@ a {
     #5865f2,
     #00eaff
   );
-
   padding: 3px;
   border-radius: inherit;
   z-index: -1;

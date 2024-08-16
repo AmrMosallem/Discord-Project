@@ -1,5 +1,5 @@
 .main-section {
-  background-color: #313338;
+  background-color: #31333886;
 }
 .main-section:has(#member-list-checkbox:checked) .main-section-grid {
   grid-template-columns: 1fr 240px;
@@ -79,7 +79,7 @@
 }
 .members-section {
   display: none;
-  background-color: #2b2d31;
+  background-color: #2b2d31cc;
   padding: 0px 10px;
   overflow-y: scroll;
 }
@@ -350,7 +350,7 @@
   align-items: center;
   gap: 15px;
   margin: 0px 15px 20px 15px;
-  background-color: #383a40;
+  background-color: #383a40c7;
   color: var(--light-color);
   font-size: 22px;
   padding: 2px 15px;

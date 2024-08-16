@@ -86,7 +86,8 @@
 }
 
 .channels-div {
-  background-color: #2b2d31;
+  background-color: #2b2d31c8;
+  backdrop-filter: blur(5px);
   flex:1;
   overflow-y: scroll;
 }
