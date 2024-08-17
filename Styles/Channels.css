@@ -46,6 +46,7 @@
   width: 85%;
   color: var(--grey-color);
   font-size: 14px;
+  z-index: 2;
 }
 .server-menu p {
   margin: 0px;
