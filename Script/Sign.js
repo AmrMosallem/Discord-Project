@@ -1,22 +1,30 @@
-
 let users = document.querySelectorAll(".user");
 
-
-if(localStorage.getItem("signedUserName")){
-  let signedUserName = localStorage.getItem("signedUserName");
-  let signedUserImg = localStorage.getItem("signedUserImg");
-  document.querySelector(".signed-in").style.display = "flex";
-  document.querySelector(".signed-in").querySelector(".user-name").innerHTML = signedUserName;
-  document.querySelector(".signed-in").querySelector(".user-img").src = signedUserImg;
-  users.forEach((user) => {
-    if(user.querySelector(".user-name").innerHTML == signedUserName){
-      user.style.display = "none";
-    }
-  })
-  document.querySelector(".continue").addEventListener("click", () => {
-    window.location.href = "community-announcements.html";
-  })
+for (let i = 0; i < users.length; i++) {
+  if (
+    localStorage.getItem("signedUserName") ==
+    users[i].querySelector(".user-name").innerHTML
+  ) {
+    let signedUserName = localStorage.getItem("signedUserName");
+    let signedUserImg = localStorage.getItem("signedUserImg");
+    document.querySelector(".signed-in").style.display = "flex";
+    document.querySelector(".signed-in").querySelector(".user-name").innerHTML =
+      signedUserName;
+    document.querySelector(".signed-in").querySelector(".user-img").src =
+      signedUserImg;
+    users[i].style.display = "none";
+    document.getElementById("continue").addEventListener("click", () => {
+      window.location.href = "community-announcements.html";
+    });
+    document.getElementById("sign-out").addEventListener("click", () => {
+      localStorage.removeItem("signedUserName");
+      localStorage.removeItem("signedUserImg");
+      window.location.href = "index.html";
+    })
+    break;
+  }
 }
+
 
 users.forEach((user) => {
   user.querySelector(".sign-in").addEventListener("click", () => {
@@ -30,4 +38,3 @@ users.forEach((user) => {
     window.location.href = "community-announcements.html";
   });
 });
-

@@ -297,6 +297,7 @@
   margin-bottom: 15px;
   border-radius: 3px;
   position: relative;
+  cursor: pointer;
 }
 .role::before {
   content: "";

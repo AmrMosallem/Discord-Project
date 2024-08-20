@@ -21,7 +21,7 @@ main {
   align-items: center;
   padding: 20px;
   gap: 15px;
-  background-color: #313338;
+  background: #1e1f22;
   color: white;
   border-radius: 10px;
 }
@@ -72,7 +72,7 @@ main > * {
 }
 
 #title {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: bold;
 }
 .user {
@@ -86,12 +86,11 @@ main > * {
   z-index: 1;
   transition: 0.2s;
   border: 2px solid transparent;
-
 }
 .user:hover {
   /* background: #3e4eff; */
   /* border: 2px solid #8791ff; */
-  background:   rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 /* .user::before {
   content: "";
@@ -133,43 +132,60 @@ main > * {
   cursor: pointer;
 }
 .sign-in:hover {
-    background: #3d4cf2;
-
-} 
+  background: #3d4cf2;
+}
 .signed-in {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 .signed-user {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
-  gap: 10px;
+  gap: 0px;
 }
 .signed-user .user-img {
-  width: 55px;
-  height: 55px;
+  width: 75px;
+  height: 75px;
 }
 
 .signed-user .user-name {
-  font-size: 36px;
+  font-size: 26px;
   flex: 0;
 }
-.continue {
-  font-size: 22px;
+.signed-buttons{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  position: relative;
+}
+#sign-out{
+  position: absolute;
+  font-size: 14px;
+  cursor: pointer;
+  right: -70px;
+  bottom: 0;
+}
+#sign-out:hover{
+  text-decoration: underline;
+
+}
+#continue {
+  font-size: 16px;
   background: #5865f2;
   padding: 5px 10px;
   color: white;
   font-weight: bold;
   transition: 0.2s;
-  padding: 5px 10px;
+  padding: 5px 8px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
 }
-.continue:hover {
-    background: #3d4cf2;
+#continue:hover {
+  background: #3d4cf2;
 }
