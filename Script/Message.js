@@ -1,28 +1,31 @@
 let chat = document.getElementById("chat");
 chat.innerHTML += `<span id="last-message"></span>`;
 console.log(document.getElementById("user-name").innerHTML);
-document.getElementById("last-message").scrollIntoView();
-document
-  .getElementById("message-input")
-  .addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      if (document.getElementById("last-message"))
-        document.getElementById("last-message").removeAttribute("id");
-      let message = document.getElementById("message-input").value;
-      let now = new Date(),
-        month = now.getMonth() + 1,
-        day = now.getDate(),
-        year = now.getFullYear(),
-        hour = now.getHours(),
-        minute = now.getMinutes(),
-        apm = hour > 12 ? "PM" : "AM";
-      hour %= 12;
-      hour = hour ? hour : 12;
-      minute = minute < 10 ? "0" + minute : minute;
-    let userImg=document.getElementById("user-img").src,
-    userName=document.getElementById("user-name").innerHTML;
+window.onload = setTimeout(function () {
+  document.getElementById("last-message").scrollIntoView({
+    behavior: "smooth",
+    block: "end",
+  });
+}, 200);
+document.getElementById("message-input").addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    if (document.getElementById("last-message"))
+      document.getElementById("last-message").removeAttribute("id");
+    let message = document.getElementById("message-input").value;
+    let now = new Date(),
+      month = now.getMonth() + 1,
+      day = now.getDate(),
+      year = now.getFullYear(),
+      hour = now.getHours(),
+      minute = now.getMinutes(),
+      apm = hour > 12 ? "PM" : "AM";
+    hour %= 12;
+    hour = hour ? hour : 12;
+    minute = minute < 10 ? "0" + minute : minute;
+    let userImg = document.getElementById("user-img").src,
+      userName = document.getElementById("user-name").innerHTML;
 
-      chat.innerHTML += ` 
+    chat.innerHTML += ` 
       <div class="message" id="last-message">
             <div class="message-icons">
               <i class="fa-solid fa-face-smile"></i>
@@ -46,7 +49,12 @@ document
               </div>
             </div>
           </div>`;
-      document.getElementById("message-input").value = "";
-      document.getElementById("last-message").scrollIntoView();
-    }
-  });
+    document.getElementById("message-input").value = "";
+    setTimeout(function () {
+      document.getElementById("last-message").scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }, 50);
+  }
+});
