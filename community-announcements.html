@@ -19,8 +19,20 @@
 </head>
 
 <body>
+
+  <!-- <div class="note">
+    <div class="inner-note">
+      <p class="note-title">Note</p>
+      <p>This website is currently being optimized for small screens (e.g., mobile phones). For the current best experience, please use a
+        larger screen (e.g., laptop)</p>
+
+      <label for="note-checkbox"><span>OK</span></label>
+      <input type="checkbox" id="note-checkbox">
+    </div>
+  </div> -->
+
   <div id="left-section">
-    <section id="servers-section" class="servers-section">
+    <section class="servers-section">
       <div class="pfp"><i class="fa-brands fa-discord"></i></div>
       <hr />
       <div class="pfp pfp-active"><img src="Images/server.jpg" /></div>
@@ -34,7 +46,7 @@
       <div class="pfp"><img src="Images/pic7.jpg" /></div>
     </section>
 
-    <section id="channels-section" class="channels-section">
+    <section class="channels-section">
       <label for="server-menu-checkbox">
         <div class="server-name">
           <span>nerds' community</span>
@@ -71,7 +83,8 @@
               <input type="checkbox" id="category-1-checkbox" checked />
             </div>
           </label>
-          <a class="channels" href="community-announcements.html"># community-announcements</a>
+          <a class="channels channels-active"># community-announcements <i class="fa-solid fa-arrow-right"
+              id="show-main-section-button"></i></a>
           <a class="channels" href="off-topic.html"># off-topic-discussions</a>
         </div>
 
@@ -85,19 +98,18 @@
             </div>
           </label>
           <a class="channels" href="frontend-announcements.html"># frontend-announcements</a>
-          <a class="channels channels-active"># frontend-discussions<i class="fa-solid fa-arrow-right"
-              id="show-main-section-button"></i></a>
+          <a class="channels" href="frontend-discussions.html"># frontend-discussions</a>
         </div>
       </div>
 
       <div class="user-div">
         <div class="user-overview">
-          <div class="user-img-div"><img src="Images/moamen.jpg" id="user-img" /></div>
+          <div class="user-img-div"><img src="Images/mazen.jpg" id="user-img" /></div>
           <div class="user-info">
-            <p id="user-name">Moamen</p>
+            <p id="user-name">mazen</p>
             <div class="user-status">
-              <p class="user-status-text">Online</p>
-              <p>moamen7halaf</p>
+              <p class="user-status-text">online</p>
+              <p>mazen_3lwany</p>
             </div>
           </div>
         </div>
@@ -110,9 +122,10 @@
   </div>
   <section id="main-section" class="main-section">
 
+
     <nav class="main-header">
       <i class="fa-solid fa-arrow-left" id="show-left-section-button"></i>
-      <span class="channel-name"> <span class="hash">#</span> frontend-discussions</span>
+      <span class="channel-name"> <span class="hash">#</span> community-announcements</span>
       <i class="fa-solid fa-pen-to-square"><span class="tooltip">Threads</span></i>
       <i class="fa-solid fa-bell"><span class="tooltip">Notification Settings</span></i>
       <i class="fa-solid fa-thumbtack"><span class="tooltip">Pinned Messages</span></i>
@@ -131,35 +144,10 @@
       <section class="messages-section">
 
         <div class="chat" id="chat">
-
           <div class="chat-header">
             <div class="chat-hash">#</div>
-            <p class="chat-title">Welcome to #frontend-discussions!</p>
-            <p class="chat-desc">This is the start of #frontend-discussions channel.</p>
-          </div>
-
-
-          <div class="message">
-            <div class="message-icons">
-              <i class="fa-solid fa-face-smile"></i>
-              <i class="fa-solid fa-reply"></i>
-              <i class="fa-solid fa-share"></i>
-              <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            <div class="message-img"><img src="Images/amr.jpg"></div>
-            <div class="message-content">
-              <div class="message-header">
-                <span class="message-name">amr</span>
-                <span class="message-date">7/25/2024 11:38 PM</span>
-              </div>
-              <div class="message-text">
-                <p>يجماعة ازاي اسنطر div</p>
-              </div>
-              <div class="message-media"></div>
-              <div class="message-reactions">
-
-              </div>
-            </div>
+            <p class="chat-title">Welcome to #community-announcements!</p>
+            <p class="chat-desc">This is the start of #community-announcements channel.</p>
           </div>
 
           <div class="message">
@@ -168,52 +156,21 @@
               <i class="fa-solid fa-reply"></i>
               <i class="fa-solid fa-share"></i>
               <i class="fa-solid fa-ellipsis"></i>
+
             </div>
 
             <div class="message-img"><img src="Images/moamen.jpg"></div>
             <div class="message-content">
               <div class="message-header">
                 <span class="message-name">Moamen</span>
-                <span class="message-date">7/25/2024 11:28 PM</span>
+                <span class="message-date">7/25/2024 11:14 PM</span>
               </div>
               <div class="message-text">
-                <p>يا عمرو لازم نعمل التاسك اللي قلتلك عليه</p>
+                <p>هنا هنزل أي أعلانات مهمة خاصة بالـcommunity.</p>
               </div>
               <div class="message-media"></div>
               <div class="message-reactions">
-              </div>
-            </div>
-          </div>
-
-          <div class="message">
-            <div class="message-reply"><img src="Images/moamen.jpg">
-              <span class="message-reply-name">@moamen</span>
-              <span class="message-reply-text">يا عمرو لازم نعمل التاسك اللي قلتلك عليه</span>
-            </div>
-
-            <div class="message-icons">
-              <i class="fa-solid fa-face-smile"></i>
-              <i class="fa-solid fa-reply"></i>
-              <i class="fa-solid fa-share"></i>
-              <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            <div class="message-img"><img src="Images/amr.jpg"></div>
-            <div class="message-content">
-              <div class="message-header">
-                <span class="message-name">amr</span>
-                <span class="message-date">7/25/2024 11:31 PM</span>
-              </div>
-              <div class="message-text">
-
-              </div>
-              <div class="message-media">
-                <audio src="Images/aud1.mp3" controls>
-
-                </audio>
-              </div>
-              <div class="message-reactions">
-                <span>😂 2</span>
-
+                <span>❤️ 1</span> <span>👍 2</span>
               </div>
             </div>
           </div>
@@ -224,16 +181,17 @@
               <i class="fa-solid fa-reply"></i>
               <i class="fa-solid fa-share"></i>
               <i class="fa-solid fa-ellipsis"></i>
+
             </div>
 
             <div class="message-img"><img src="Images/moamen.jpg"></div>
             <div class="message-content">
               <div class="message-header">
                 <span class="message-name">Moamen</span>
-                <span class="message-date">7/25/2024 11:32 PM</span>
+                <span class="message-date">7/25/2024 11:14 PM</span>
               </div>
               <div class="message-text">
-                <p>لازم انهاردة يعمرو ضروري</p>
+                <p>+ اللي مش هيحل الشيت هيتفلتر🔪😠</p>
               </div>
               <div class="message-media"></div>
               <div class="message-reactions">
@@ -242,10 +200,6 @@
           </div>
 
           <div class="message">
-            <div class="message-reply"><img src="Images/moamen.jpg">
-              <span class="message-reply-name">@moamen</span>
-              <span class="message-reply-text">لازم انهاردة يعمرو ضروري</span>
-            </div>
 
             <div class="message-icons">
               <i class="fa-solid fa-face-smile"></i>
@@ -257,23 +211,67 @@
             <div class="message-content">
               <div class="message-header">
                 <span class="message-name">amr</span>
-                <span class="message-date">7/25/2024 11:32 PM</span>
+                <span class="message-date">7/25/2024 11:15 PM</span>
+              </div>
+              <div class="message-text">
+                <p>هنعمل ميتنج بإذن الله بكرا الساعة ستة الا تلت الصبح</p>
+                <p>ضروري كله يحضر</p>
+              </div>
+              <div class="message-media"></div>
+              <div class="message-reactions">
+                <span>😧 5</span>
+
+              </div>
+            </div>
+          </div>
+          <div class="message">
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <div class="message-img"><img src="Images/moamen.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">Moamen</span>
+                <span class="message-date">7/25/2024 11:15 PM</span>
+              </div>
+              <div class="message-text">
+                <p>+ اللي مش هيحضر هيتفلتر🔪😠</p>
+              </div>
+              <div class="message-media"></div>
+              <div class="message-reactions">
+              </div>
+            </div>
+          </div>
+
+          <div class="message">
+
+            <div class="message-icons">
+              <i class="fa-solid fa-face-smile"></i>
+              <i class="fa-solid fa-reply"></i>
+              <i class="fa-solid fa-share"></i>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="message-img"><img src="Images/mazen.jpg"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-name">mazen</span>
+                <span class="message-date">7/25/2024 11:16 PM</span>
               </div>
               <div class="message-text">
 
               </div>
               <div class="message-media">
-                <audio src="Images/aud2.mp3" controls>
-
-                </audio>
+                <video src="Images/vid1.mp4" controls></video>
               </div>
               <div class="message-reactions">
-                <span>😂 2</span>
-
               </div>
             </div>
           </div>
-
 
         </div>
         <div class="message-bar">
@@ -282,8 +280,6 @@
           <label for="#plus-checkbox">
             <i class="fa-solid fa-circle-plus plus-button">
               <input type="checkbox" id="#plus-checkbox" />
-
-
               <div class="plus-menu">
                 <p><i class="fa-solid fa-file-arrow-up"></i>Upload a File</p>
                 <p><i class="fa-solid fa-pen-to-square"></i>Create Thread</p>
@@ -294,7 +290,7 @@
               </div>
             </i>
           </label>
-          <input placeholder="Message #frontend-discussions" id="message-input">
+          <input placeholder="Message #community-announcements" id="message-input">
           <button style="position:fixed; top:-100px;"></button>
           <i class="fa-solid fa-gift"></i>
           <i class="fa-gif">GIF</i>
