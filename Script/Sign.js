@@ -14,7 +14,7 @@ for (let i = 0; i < users.length; i++) {
       signedUserImg;
     users[i].style.display = "none";
     document.getElementById("continue").addEventListener("click", () => {
-      window.location.href = "community-announcements.html";
+      window.location.href = "main.html";
     });
     document.getElementById("sign-out").addEventListener("click", () => {
       localStorage.removeItem("signedUserName");
@@ -35,6 +35,6 @@ users.forEach((user) => {
     console.log(
       `signedUserName: ${signedUserName}, signedUserImg: ${signedUserImg}`
     );
-    window.location.href = "community-announcements.html";
+    window.location.href = "main.html";
   });
 });

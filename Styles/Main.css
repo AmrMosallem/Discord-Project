@@ -42,7 +42,7 @@
   color: var(--grey-color);
   font-weight: normal;
 }
-.channel-name {
+#channel-name {
   flex: 1;
   display: flex;
   align-items: center;
@@ -476,12 +476,12 @@
   margin-bottom: 10px;
 }
 
-.chat-title {
+#chat-title {
   color: white;
   font-size: 33px;
   font-weight: bold;
 }
-.chat-desc {
+#chat-desc {
   font-size: 16px;
   color: var(--light-color);
 }
