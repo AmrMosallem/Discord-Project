@@ -36,8 +36,8 @@ document.querySelectorAll(".member-container").forEach((member) => {
     document
       .querySelector(".members-section")
       .insertBefore(
-        member.parentElement,
-        member.parentElement.parentElement.children[1]
+        member,
+        member.parentElement.children[1]
       );
   }
 });

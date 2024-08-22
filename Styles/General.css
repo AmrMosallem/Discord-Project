@@ -15,6 +15,14 @@ body > * {
   position: relative;
   height: 100dvh;
 }
+
+.unavailable, .unavailable::before, .unavailable::after {
+  display: none;
+}
+.disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 #left-section {
   display: grid;
   grid-template-columns: 75px 1fr;
@@ -60,97 +68,8 @@ a {
   color: yellow;
 }
 
-.note {
-  position: fixed;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 120;
-}
-.note img {
-  width: 25%;
-}
-.inner-note {
-  background-color: #313338;
-  color: var(--light-color);
-  text-align: center;
-  padding: 20px;
-  width: 250px;
-  position: relative;
-  border-radius: 5px;
-}
 
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-.inner-note::before,
-.inner-note::after {
-  --angle: 0deg;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  background-image: conic-gradient(
-    from var(--angle),
-    #00eaff,
-    #5865f2,
-    #00eaff
-  );
-  padding: 3px;
-  border-radius: inherit;
-  z-index: -1;
-  animation: spin 4s linear infinite;
-}
-.inner-note::before {
-  filter: blur(10px);
-  opacity: 0.7;
-}
-@keyframes spin {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: 360deg;
-  }
-}
-.note-title {
-  font-size: 34px;
-  font-weight: bold;
-  color: white;
-}
-
-.note span {
-  display: block;
-  margin-top: 10px;
-  background-color: #5865f2;
-  font-size: 20px;
-  color: white;
-  padding: 4px 15px;
-  border-radius: 5px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-.note span:hover {
-  background-color: #4d58d4;
-}
-.note input {
-  display: none;
-}
-.note:has(input:checked) {
-  display: none;
-}
 
 .tooltip {
   font-size: 14px;

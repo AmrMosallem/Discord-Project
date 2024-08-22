@@ -118,6 +118,7 @@ main > * {
 .user-name {
   font-size: 18px;
   font-weight: bold;
+  color:rgb(255, 255, 255);
   flex: 1;
 }
 .sign-in {
@@ -125,14 +126,14 @@ main > * {
   font-size: 14px;
   font-weight: bold;
   transition: 0.2s;
-  padding: 5px;
+
   border-radius: 5px;
-  background: #5865f2;
+  background: none;
   border: none;
   cursor: pointer;
 }
 .sign-in:hover {
-  background: #3d4cf2;
+  text-decoration: underline;
 }
 .signed-in {
   display: flex;

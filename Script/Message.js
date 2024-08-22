@@ -19,11 +19,41 @@ document.getElementById("cancel-reply").onclick = function () {
   MessageReply = null;
 };
 
+function getCurrentDate() {
+  let now = new Date(),
+    month = now.getMonth() + 1,
+    day = now.getDate(),
+    year = now.getFullYear(),
+    hour = now.getHours(),
+    minute = now.getMinutes(),
+    apm = hour > 12 ? "PM" : "AM";
+  hour %= 12;
+  hour = hour ? hour : 12;
+  minute = minute < 10 ? "0" + minute : minute;
+  return `${month}/${day}/${year} ${hour}:${minute} ${apm}`;
+}
+
 document
   .getElementById("message-input")
   .addEventListener("keydown", (event) => {
     if (event.key === "Enter" && !event.shiftKey) {
-      chat.appendChild(addMessage(MessageReply));
+      let replyimg, replyname, replytext;
+      if (MessageReply) {
+        replyimg = MessageReply.querySelector(".message-reply img").src;
+        replyname = MessageReply.querySelector(".message-reply-name").innerHTML;
+        replytext = MessageReply.querySelector(".message-reply-text").innerHTML;
+        document.getElementById("cancel-reply").click();
+      }
+      let messageObject = {
+        replyImg: replyimg,
+        replyName: replyname,
+        replyText: replytext,
+        img: document.getElementById("user-img").src,
+        name: document.getElementById("user-name").innerHTML,
+        date: getCurrentDate(),
+        text: document.getElementById("message-input").value,
+      };
+      chat.appendChild(createMessage(messageObject));
       document.getElementById("last-message").scrollIntoView({
         behavior: "smooth",
         block: "end",
@@ -39,36 +69,22 @@ document
     }
   });
 
-function addMessage(replyMessage) {
+function createMessage(messageObject) {
   if (document.getElementById("last-message"))
     document.getElementById("last-message").removeAttribute("id");
-
-  let now = new Date(),
-    month = now.getMonth() + 1,
-    day = now.getDate(),
-    year = now.getFullYear(),
-    hour = now.getHours(),
-    minute = now.getMinutes(),
-    apm = hour > 12 ? "PM" : "AM";
-  hour %= 12;
-  hour = hour ? hour : 12;
-  minute = minute < 10 ? "0" + minute : minute;
 
   let reply = document.createElement("div");
   reply.className = "message-reply";
 
-  if (replyMessage) {
+  if (messageObject.replyName) {
     let replyImg = document.createElement("img");
-    replyImg.src = replyMessage.querySelector(".message-img img").src;
+    replyImg.src = messageObject.replyImg;
     let replyName = document.createElement("span");
     replyName.className = "message-reply-name";
-    replyName.innerHTML = replyMessage.querySelector(
-      ".message-header .message-name"
-    ).innerHTML;
+    replyName.innerHTML = messageObject.replyName;
     let replyText = document.createElement("span");
     replyText.className = "message-reply-text";
-    replyText.innerHTML =
-      replyMessage.querySelector(".message-text p").innerHTML;
+    replyText.innerHTML = messageObject.replyText;
     reply.appendChild(replyImg);
     reply.appendChild(replyName);
     reply.appendChild(replyText);
@@ -90,16 +106,15 @@ function addMessage(replyMessage) {
     replyBar.classList.add("reply-bar-active");
     MessageReply = message;
   };
-
   let editIcon = document.createElement("i");
   editIcon.className = "fa-solid fa-pen";
+
   editIcon.onclick = function () {
     let message = this.parentElement.parentElement;
     let messageText = message.querySelector(".message-text p");
     let editInput = document.createElement("textarea");
-    editInput.value = messageText.innerHTML;
     editInput.classList = "message-edit-input";
-
+    editInput.value = messageText.innerHTML;
     messageText.remove();
     message.querySelector(".message-text").appendChild(editInput);
     editInput.focus();
@@ -115,16 +130,17 @@ function addMessage(replyMessage) {
       }
     });
   };
+
   let deleteIcon = document.createElement("i");
   deleteIcon.className = "fa-solid fa-trash";
-
+  deleteIcon.style = "color: rgb(255, 50, 50)";
   deleteIcon.onclick = function () {
     let message = this.parentElement.parentElement;
     document
       .getElementById("confirm-container")
       .classList.add("confirm-active");
     let clonedMessage = this.parentElement.parentElement.cloneNode(true);
-    if(clonedMessage.querySelector(".message-reply"))
+    if (clonedMessage.querySelector(".message-reply"))
       clonedMessage.querySelector(".message-reply").remove();
     clonedMessage.classList = "confirm-message";
     document
@@ -148,13 +164,14 @@ function addMessage(replyMessage) {
 
   messageIcons.appendChild(reactIcon);
   messageIcons.appendChild(replyIcon);
-  messageIcons.appendChild(editIcon);
+  if (document.getElementById("user-name").innerHTML == messageObject.name)
+    messageIcons.appendChild(editIcon);
   messageIcons.appendChild(deleteIcon);
 
   let messageImgContainer = document.createElement("div");
   messageImgContainer.className = "message-img";
   let messageImg = document.createElement("img");
-  messageImg.src = document.getElementById("user-img").src;
+  messageImg.src = messageObject.img;
   messageImgContainer.appendChild(messageImg);
 
   let messageContent = document.createElement("div");
@@ -164,11 +181,11 @@ function addMessage(replyMessage) {
   messageHeader.className = "message-header";
   let messageName = document.createElement("span");
   messageName.className = "message-name";
-  messageName.innerHTML = document.getElementById("user-name").innerHTML;
+  messageName.innerHTML = messageObject.name;
 
   let messageDate = document.createElement("span");
   messageDate.className = "message-date";
-  messageDate.innerHTML = `${month}/${day}/${year} ${hour}:${minute} ${apm}`;
+  messageDate.innerHTML = messageObject.date;
 
   messageHeader.appendChild(messageName);
   messageHeader.appendChild(messageDate);
@@ -176,7 +193,7 @@ function addMessage(replyMessage) {
   let messageText = document.createElement("div");
   messageText.className = "message-text";
   let messageTextP = document.createElement("p");
-  messageTextP.innerHTML = document.getElementById("message-input").value;
+  messageTextP.innerHTML = messageObject.text;
   messageText.appendChild(messageTextP);
 
   let messageMedia = document.createElement("div");
@@ -193,14 +210,12 @@ function addMessage(replyMessage) {
   message.className = "message";
   message.setAttribute("id", "last-message");
 
-  if (replyMessage) {
+  if (messageObject.replyName) {
     message.appendChild(reply);
-    document.getElementById("cancel-reply").click();
   }
   message.appendChild(messageIcons);
   message.appendChild(messageImgContainer);
   message.appendChild(messageContent);
-
   return message;
 }
 
@@ -222,7 +237,6 @@ function saveToLocalStorage() {
       date: message.querySelector(".message-header .message-date").innerHTML,
       text: message.querySelector(".message-text p").innerHTML,
     };
-
     messagesArray.push(messageObject);
   });
 
