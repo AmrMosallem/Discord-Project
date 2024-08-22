@@ -73,8 +73,8 @@
                             <input type="checkbox" id="category-1-checkbox" checked />
                         </div>
                     </label>
-                    <span class="channels channels-active" id = "community-announcements"># community-announcements</span>
-                    <span class="channels" id = "off-topic-discussions"># off-topic-discussions</span>
+                    <span class="channels channels-active" id="community-announcements"># community-announcements</span>
+                    <span class="channels" id="off-topic-discussions"># off-topic-discussions</span>
                 </div>
 
                 <div class="sub-channels-section">
@@ -86,8 +86,8 @@
                             <input type="checkbox" id="category-2-checkbox" checked />
                         </div>
                     </label>
-                    <span class="channels" id = "frontend-announcements"># frontend-announcements</span>
-                    <span class="channels" id = "frontend-discussions"># frontend-discussions</span>
+                    <span class="channels" id="frontend-announcements"># frontend-announcements</span>
+                    <span class="channels" id="frontend-discussions"># frontend-discussions</span>
                 </div>
             </div>
 
@@ -139,12 +139,8 @@
                         <p id="chat-desc">This is the start of #community-announcements channel.</p>
                     </div>
 
-
-
                 </div>
                 <div class="message-bar">
-
-
                     <label for="#plus-checkbox">
                         <i class="fa-solid fa-circle-plus plus-button">
                             <input type="checkbox" id="#plus-checkbox" />
@@ -154,17 +150,31 @@
                                 <p><i class="fa-solid fa-square-poll-horizontal"></i>Create Poll</p>
                                 <p><i class="fa-solid fa-table-cells-large"></i>Use Apps</p>
                                 <p><i class="fa-solid fa-rocket"></i>Start Activity</p>
-
                             </div>
                         </i>
                     </label>
-                    <input placeholder="Message #community-announcements" id="message-input">
+                    <textarea placeholder="Message #community-announcements" id="message-input"></textarea>
                     <button style="position:fixed; top:-100px;"></button>
                     <i class="fa-solid fa-gift"></i>
                     <i class="fa-gif">GIF</i>
                     <i class="fa-solid fa-note-sticky"></i>
                     <i class="fa-solid fa-face-smile"></i>
+                    <div class="reply-bar">
+                        <div>Replying to <span id="reply-name">@amr</span></div>
+                        <i class="fa-solid fa-xmark" id="cancel-reply"></i>
+                    </div>
                 </div>
+
+                <div id="confirm-container" class ="confirm-container">
+                    <div id="confirm-box">
+                        <span id="confirm-title">Delete Message</span>
+                        <div id="confirm-text">Are you sure you want to delete this message?</div>
+                        <div id="confirm-message-container"></div>
+                        <div id="confirm-buttons">
+                            <button id="cancel-button">Cancel</button>
+                            <button id="delete-button">Delete</button>
+                        </div>
+                    </div>
             </section>
 
             <section class="members-section">
@@ -402,12 +412,12 @@
 
         </div>
     </section>
-    <script src="Script/Main.js" ></script>
 
-    <script src="Script/Message.js" ></script>
+
+    <script src="Script/Message.js"></script>
     <script src="Script/Mobile.js"></script>
     <script src="Script/User.js"></script>
-
+    <script src="Script/Main.js"></script>
 
 </body>
 

@@ -27,7 +27,7 @@ for (let i = 0; i < users.length; i++) {
 
 
 users.forEach((user) => {
-  user.querySelector(".sign-in").addEventListener("click", () => {
+  user.addEventListener("click", () => {
     let signedUserName = user.querySelector(".user-name").innerHTML;
     let signedUserImg = user.querySelector(".user-img").src;
     localStorage.setItem("signedUserName", signedUserName);

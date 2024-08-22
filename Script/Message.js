@@ -9,17 +9,35 @@ window.onload = setTimeout(function () {
   });
 }, 200);
 
-document.getElementById("message-input").addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
-    chat.appendChild(addMessage());
-    document.getElementById("message-input").value = "";
-    document.getElementById("last-message").scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-    });
-    saveToLocalStorage();
-  }
-});
+let MessageReply;
+
+document.getElementById("cancel-reply").onclick = function () {
+  document
+    .querySelector(".message-bar")
+    .classList.remove("message-bar-replied");
+  document.querySelector(".reply-bar").classList.remove("reply-bar-active");
+  MessageReply = null;
+};
+
+document
+  .getElementById("message-input")
+  .addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      chat.appendChild(addMessage(MessageReply));
+      document.getElementById("last-message").scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+      saveToLocalStorage();
+      setTimeout(function () {
+        document.getElementById("message-input").value = "";
+        document.getElementById("last-message").scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      }, 0);
+    }
+  });
 
 function addMessage(replyMessage) {
   if (document.getElementById("last-message"))
@@ -58,10 +76,80 @@ function addMessage(replyMessage) {
 
   let messageIcons = document.createElement("div");
   messageIcons.className = "message-icons";
-  messageIcons.innerHTML = `<i class="fa-solid fa-face-smile"></i>
-  <i class="fa-solid fa-reply"></i>
-  <i class="fa-solid fa-share"></i>
-  <i class="fa-solid fa-ellipsis"></i>`;
+
+  let reactIcon = document.createElement("i");
+  reactIcon.className = "fa-solid fa-face-smile";
+  let replyIcon = document.createElement("i");
+  replyIcon.className = "fa-solid fa-reply";
+  replyIcon.onclick = function () {
+    let message = this.parentElement.parentElement;
+    document.querySelector(".message-bar").classList.add("message-bar-replied");
+    let replyBar = document.querySelector(".reply-bar");
+    document.getElementById("reply-name").innerHTML =
+      "@" + message.querySelector(".message-header .message-name").innerHTML;
+    replyBar.classList.add("reply-bar-active");
+    MessageReply = message;
+  };
+
+  let editIcon = document.createElement("i");
+  editIcon.className = "fa-solid fa-pen";
+  editIcon.onclick = function () {
+    let message = this.parentElement.parentElement;
+    let messageText = message.querySelector(".message-text p");
+    let editInput = document.createElement("textarea");
+    editInput.value = messageText.innerHTML;
+    editInput.classList = "message-edit-input";
+
+    messageText.remove();
+    message.querySelector(".message-text").appendChild(editInput);
+    editInput.focus();
+    editInput.onblur = function () {
+      messageText.innerHTML = editInput.value;
+      message.querySelector(".message-text").appendChild(messageText);
+      saveToLocalStorage();
+      editInput.remove();
+    };
+    editInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" && !event.shiftKey) {
+        editInput.blur();
+      }
+    });
+  };
+  let deleteIcon = document.createElement("i");
+  deleteIcon.className = "fa-solid fa-trash";
+
+  deleteIcon.onclick = function () {
+    let message = this.parentElement.parentElement;
+    document
+      .getElementById("confirm-container")
+      .classList.add("confirm-active");
+    let clonedMessage = this.parentElement.parentElement.cloneNode(true);
+    if(clonedMessage.querySelector(".message-reply"))
+      clonedMessage.querySelector(".message-reply").remove();
+    clonedMessage.classList = "confirm-message";
+    document
+      .getElementById("confirm-message-container")
+      .appendChild(clonedMessage);
+    document.getElementById("delete-button").onclick = function () {
+      message.remove();
+      saveToLocalStorage();
+      clonedMessage.remove();
+      document
+        .getElementById("confirm-container")
+        .classList.remove("confirm-active");
+    };
+    document.getElementById("cancel-button").onclick = function () {
+      clonedMessage.remove();
+      document
+        .getElementById("confirm-container")
+        .classList.remove("confirm-active");
+    };
+  };
+
+  messageIcons.appendChild(reactIcon);
+  messageIcons.appendChild(replyIcon);
+  messageIcons.appendChild(editIcon);
+  messageIcons.appendChild(deleteIcon);
 
   let messageImgContainer = document.createElement("div");
   messageImgContainer.className = "message-img";
@@ -105,7 +193,10 @@ function addMessage(replyMessage) {
   message.className = "message";
   message.setAttribute("id", "last-message");
 
-  if (replyMessage) message.appendChild(reply);
+  if (replyMessage) {
+    message.appendChild(reply);
+    document.getElementById("cancel-reply").click();
+  }
   message.appendChild(messageIcons);
   message.appendChild(messageImgContainer);
   message.appendChild(messageContent);
@@ -116,7 +207,16 @@ function addMessage(replyMessage) {
 function saveToLocalStorage() {
   let messagesArray = [];
   document.querySelectorAll(".message").forEach((message) => {
+    let replyimg, replyname, replytext;
+    if (message.querySelector(".message-reply")) {
+      replyimg = message.querySelector(".message-reply img").src;
+      replyname = message.querySelector(".message-reply-name").innerHTML;
+      replytext = message.querySelector(".message-reply-text").innerHTML;
+    }
     let messageObject = {
+      replyImg: replyimg,
+      replyName: replyname,
+      replyText: replytext,
       img: message.querySelector(".message-img img").src,
       name: message.querySelector(".message-header .message-name").innerHTML,
       date: message.querySelector(".message-header .message-date").innerHTML,
