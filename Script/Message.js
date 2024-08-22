@@ -39,9 +39,9 @@ document
     if (event.key === "Enter" && !event.shiftKey) {
       let replyimg, replyname, replytext;
       if (MessageReply) {
-        replyimg = MessageReply.querySelector(".message-reply img").src;
-        replyname = MessageReply.querySelector(".message-reply-name").innerHTML;
-        replytext = MessageReply.querySelector(".message-reply-text").innerHTML;
+        replyimg = MessageReply.querySelector(".message-img img").src;
+        replyname = MessageReply.querySelector(".message-name").innerHTML;
+        replytext = MessageReply.querySelector(".message-text p").innerHTML;
         document.getElementById("cancel-reply").click();
       }
       let messageObject = {
