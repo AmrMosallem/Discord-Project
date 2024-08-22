@@ -704,6 +704,10 @@
   #show-left-section-button {
     display: block;
   }
+  .member-overview{
+    right:50%;
+    translate: 50% 0;
+  }
 }
 
 .confirm-container {
