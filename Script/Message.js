@@ -93,8 +93,9 @@ function createMessage(messageObject) {
   let messageIcons = document.createElement("div");
   messageIcons.className = "message-icons";
 
-  let reactIcon = document.createElement("i");
-  reactIcon.className = "fa-solid fa-face-smile";
+  // let reactIcon = document.createElement("i");
+  // reactIcon.className = "fa-solid fa-face-smile";
+
   let replyIcon = document.createElement("i");
   replyIcon.className = "fa-solid fa-reply";
   replyIcon.onclick = function () {
@@ -105,6 +106,7 @@ function createMessage(messageObject) {
       "@" + message.querySelector(".message-header .message-name").innerHTML;
     replyBar.classList.add("reply-bar-active");
     MessageReply = message;
+    document.getElementById("message-input").focus();
   };
   let editIcon = document.createElement("i");
   editIcon.className = "fa-solid fa-pen";
@@ -162,12 +164,12 @@ function createMessage(messageObject) {
     };
   };
 
-  messageIcons.appendChild(reactIcon);
+  // messageIcons.appendChild(reactIcon);
   messageIcons.appendChild(replyIcon);
-  if (document.getElementById("user-name").innerHTML == messageObject.name)
+  if (document.getElementById("user-name").innerHTML == messageObject.name) {
     messageIcons.appendChild(editIcon);
-  messageIcons.appendChild(deleteIcon);
-
+    messageIcons.appendChild(deleteIcon);
+  }
   let messageImgContainer = document.createElement("div");
   messageImgContainer.className = "message-img";
   let messageImg = document.createElement("img");

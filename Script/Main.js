@@ -1,3 +1,8 @@
+
+if(!localStorage.getItem("signedUserName")){
+  window.location.href = "index.html";
+}
+
 let channels = document.querySelectorAll(".channels");
 let activeChannel = "community-announcements";
 
@@ -62,31 +67,36 @@ document.getElementById("search-input").addEventListener("input", function () {
   });
 });
 
+
+
 let plusMenu = document.getElementById("plus-menu");
-document.querySelector(".plus-button").onclick = () => {
-  plusMenu.classList.toggle("plus-menu-inactive");
-  plusMenu.onclick = () => {
+
+function hidePlusMenu (event) {
+
+  if (!document.querySelector(".plus-button").contains(event.target)) {
     plusMenu.classList.add("plus-menu-inactive");
-  };
+    document.removeEventListener("click", hidePlusMenu);
+  }
+}
+
+document.querySelector(".plus-button").onclick = () => {
+  plusMenu.classList.remove("plus-menu-inactive");
+ document.addEventListener("click", hidePlusMenu);
 };
-plusMenu.onmouseleave = () => {
-  plusMenu.classList.add("plus-menu-inactive");
-};
+
+
 
 document.querySelectorAll(".member-container").forEach((member) => {
   member.addEventListener("click", () => {
     let memberOverview = member.querySelector(".member-overview");
-
-    if (memberOverview.classList.contains("member-overview-active")) {
-      memberOverview.classList.remove("member-overview-active");
-    } else {
-      document.querySelectorAll(".member-overview-active").forEach((member) => {
-        member.classList.remove("member-overview-active");
-      });
-      memberOverview.classList.add("member-overview-active");
-      memberOverview.onmouseleave = () => {
+    memberOverview.classList.add("member-overview-active");
+    
+    function hideMemberOverview(event) {
+      if (!member.contains(event.target)) {
         memberOverview.classList.remove("member-overview-active");
-      };
+        document.removeEventListener("click", hideMemberOverview);
+      }
     }
+    document.addEventListener("click", hideMemberOverview);
   });
 });

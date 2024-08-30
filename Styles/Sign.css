@@ -118,7 +118,7 @@ main > * {
 .user-name {
   font-size: 18px;
   font-weight: bold;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   flex: 1;
 }
 .sign-in {
@@ -158,22 +158,21 @@ main > * {
   font-size: 26px;
   flex: 0;
 }
-.signed-buttons{
+.signed-buttons {
   display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
   position: relative;
 }
-#sign-out{
+#sign-out {
   position: absolute;
   font-size: 14px;
   cursor: pointer;
   right: -70px;
   bottom: 0;
 }
-#sign-out:hover{
+#sign-out:hover {
   text-decoration: underline;
-
 }
 #continue {
   font-size: 16px;
@@ -189,4 +188,46 @@ main > * {
 }
 #continue:hover {
   background: #3d4cf2;
+}
+
+.user-img-container {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  border-radius: 200px;
+  width: 40px;
+  height: 40px;
+}
+
+.user-img-container::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -27px;
+
+  width: 150%;
+  height: 5px;
+  background-color: rgb(255, 229, 199);
+  mix-blend-mode: overlay;
+  z-index: 24;
+  filter: blur(3px);
+  transform: rotateZ(142deg);
+}
+
+@keyframes shine {
+  0% {
+    top: -5px;
+    left: -27px;
+    opacity: 1;
+  }
+
+  100% {
+    top: 40px;
+    left: 10px;
+    opacity: 0;
+  }
+}
+
+.user:hover .user-img-container::before {
+  animation: shine 0.5s linear;
 }
