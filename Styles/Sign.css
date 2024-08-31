@@ -228,7 +228,7 @@ main {
 }
 
 .user:hover .user-img-container::before {
-  animation: shine 0.5s linear;
+  animation: shine 0.4s linear;
 }
 
 #sign-in-container {
@@ -264,7 +264,7 @@ main {
   border-radius: 5px;
   border: none;
   outline: none;
-  padding: 5px;
+  padding: 8px;
   color:white;
   background: rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
@@ -285,7 +285,7 @@ background-image: conic-gradient(
   #ffdd00,
   #66ff00,
   #ffdd00
-);
+);  animation: spin infinite 3s linear;
 }
 #sign-in-container .img-container .border .blurred {
   filter: blur(3px);
@@ -303,5 +303,13 @@ background-image: conic-gradient(
   padding: 5px;
 }
 #back-button:hover{
+  text-decoration: underline;
+}
+
+#guest{
+  cursor: pointer;
+  padding: 5px 10px;
+}
+#guest:hover{
   text-decoration: underline;
 }

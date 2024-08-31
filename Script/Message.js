@@ -170,8 +170,13 @@ function createMessage(messageObject) {
 
   // messageIcons.appendChild(reactIcon);
   messageIcons.appendChild(replyIcon);
-  if (document.getElementById("user-name").innerHTML == messageObject.name) {
+
+  if (document.getElementById("user-name").innerHTML == messageObject.name)
     messageIcons.appendChild(editIcon);
+  if (
+    document.getElementById("user-name").innerHTML == messageObject.name ||
+    document.getElementById("user-name").innerHTML == "amr"
+  ) {
     messageIcons.appendChild(deleteIcon);
   }
   let messageImgContainer = document.createElement("div");
@@ -259,12 +264,12 @@ function getAllMessages() {
   document.querySelectorAll(".message").forEach((message) => {
     let replyimg, replyname, replytext;
     if (message.querySelector(".message-reply")) {
-      replyimg = message.querySelector(".message-reply img").src;
+      replyimg = getRawSource(message.querySelector(".message-reply img").src);
       replyname = message.querySelector(".message-reply-name").innerHTML;
       replytext = message.querySelector(".message-reply-text").innerHTML;
     }
     let messageObject = {
-      img: message.querySelector(".message-img img").src,
+      img: getRawSource(message.querySelector(".message-img img").src),
       name: message.querySelector(".message-header .message-name").innerHTML,
       date: message.querySelector(".message-header .message-date").innerHTML,
       text: message.querySelector(".message-text bdi").innerHTML,
@@ -348,9 +353,7 @@ function retrieveMessagesFromFirebase() {
       });
     }
     if (document.getElementById("last-message"))
-      document
-        .getElementById("last-message")
-        .scrollIntoView({block: "end" });
+      document.getElementById("last-message").scrollIntoView({ block: "end" });
     // return messages ? messages : [];
   });
 }
@@ -385,3 +388,7 @@ function retrieveMessagesFromFirebase() {
 // retrieveMessagesFromFirebase().then((messagesArray) => {
 //   console.log('Retrieved messages:', messagesArray);
 // });
+function getRawSource(source) {
+  source = source.slice(source.indexOf("Images"), source.length);
+  return source;
+}

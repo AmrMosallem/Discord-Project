@@ -1,8 +1,6 @@
 let users = document.querySelectorAll(".user");
 
-
 function checkSignedIn() {
-
   for (let i = 0; i < users.length; i++) {
     if (
       localStorage.getItem("signedUserName") ==
@@ -48,7 +46,7 @@ users.forEach((user) => {
   user.addEventListener("click", () => {
     userName = user.querySelector(".user-name").innerHTML;
     UserImg = user.querySelector(".user-img").src;
-    document.querySelector("#sign-in-user .user-img").src = UserImg;
+    document.querySelector("#sign-in-user .user-img").src = getRawSource(UserImg);
     document.querySelector("#sign-in-user .user-name").innerHTML = userName;
     document.getElementById("title").innerHTML = "Sign In";
     document.getElementById("users").style.display = "none";
@@ -79,7 +77,7 @@ password.addEventListener("keyup", (event) => {
 document.getElementById("sign-in-button").addEventListener("click", () => {
   if (password.value == "1234") {
     localStorage.setItem("signedUserName", userName);
-    localStorage.setItem("signedUserImg", UserImg);
+    localStorage.setItem("signedUserImg", getRawSource(UserImg));
     backButton.style.display = "none";
     window.location.href = "main.html";
   } else {
@@ -91,3 +89,14 @@ document.getElementById("sign-in-button").addEventListener("click", () => {
     }
   }
 });
+
+document.getElementById("guest").addEventListener("click", () => {
+  localStorage.setItem("signedUserName", "Guest");
+  localStorage.setItem("signedUserImg", "Images/guest.png");
+  window.location.href = "main.html";
+});
+
+function getRawSource(source) {
+  source = source.slice(source.indexOf("Images"), source.length);
+  return source;
+}

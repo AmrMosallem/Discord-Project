@@ -32,7 +32,8 @@ function loadChannel(channelName) {
   document.getElementById(
     "chat-desc"
   ).innerHTML = `This is the start of ${channelName} channel.`;
-
+  document.getElementById("message-input").placeholder = `Message #${channelName}`;
+  checkGuest();
   retrieveMessagesFromFirebase();
  /*  document.querySelectorAll(".message").forEach((message) => {
     message.remove();
@@ -111,3 +112,13 @@ document.getElementById("log-out").onclick = () => {
   localStorage.removeItem("signedUserImg");
   window.location.href = "index.html";
 };
+
+
+function checkGuest(){
+  if(localStorage.getItem("signedUserName") == "Guest") {
+    if(document.getElementById("frontend-role")) document.querySelector(".role-text").remove();
+    document.getElementById("message-input").placeholder = "You cannot send messages as Guest.";
+    document.getElementById("message-input").disabled = true;
+    document.getElementById("message-input").style.cursor = "not-allowed";
+  }
+}
