@@ -2,10 +2,10 @@ body {
   font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
     sans-serif, "Apple Symbols";
   margin: 0;
-  background-image: url("../Images/wallpaper2.jpg");
+  /* background-image: url("../Images/wallpaper2.jpg");
   background-size: cover;
   background-position: bottom;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   background-color: rgb(48, 49, 56);
   display: flex;
   justify-content: center;
@@ -24,10 +24,7 @@ main {
   background: #1e1f22;
   color: white;
   border-radius: 10px;
-}
-
-main > * {
-  border-radius: inherit;
+  min-width: 300px;
 }
 
 @property --angle {
@@ -75,6 +72,12 @@ main > * {
   font-size: 42px;
   font-weight: bold;
 }
+#users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
 .user {
   display: flex;
   align-items: center;
@@ -86,6 +89,7 @@ main > * {
   z-index: 1;
   transition: 0.2s;
   border: 2px solid transparent;
+  border-radius: 5px;
 }
 .user:hover {
   /* background: #3e4eff; */
@@ -121,18 +125,13 @@ main > * {
   color: rgb(255, 255, 255);
   flex: 1;
 }
-.sign-in {
+.next-button {
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
-  transition: 0.2s;
-
-  border-radius: 5px;
-  background: none;
-  border: none;
   cursor: pointer;
 }
-.sign-in:hover {
+.next-button:hover {
   text-decoration: underline;
 }
 .signed-in {
@@ -174,20 +173,20 @@ main > * {
 #sign-out:hover {
   text-decoration: underline;
 }
-#continue {
+#continue, #sign-in-button{
   font-size: 16px;
   background: #5865f2;
   padding: 5px 10px;
   color: white;
-  font-weight: bold;
+
   transition: 0.2s;
   padding: 5px 8px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
 }
-#continue:hover {
-  background: #3d4cf2;
+#continue:hover, #sign-in-button:hover {
+  background: #4752c4;
 }
 
 .user-img-container {
@@ -230,4 +229,79 @@ main > * {
 
 .user:hover .user-img-container::before {
   animation: shine 0.5s linear;
+}
+
+#sign-in-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;  width: 100%;
+  gap: 15px;
+}
+#sign-in-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+#sign-in-user .user-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+#sign-in-user .user-name {
+  font-size: 32px;
+}
+#sign-in-form{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  width: 90%;
+}
+#password{
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  color:white;
+  background: rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  width: 100%;
+}
+#sign-in-container .img-container{
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 200px;
+}
+
+#sign-in-container .img-container .border{
+z-index: 0;
+padding: 1px;
+background-image: conic-gradient(
+  from var(--angle),
+  #ffdd00,
+  #66ff00,
+  #ffdd00
+);
+}
+#sign-in-container .img-container .border .blurred {
+  filter: blur(3px);
+  opacity: 0.5;
+}
+
+#back-button{
+  display: none;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 18px;
+  padding: 5px;
+}
+#back-button:hover{
+  text-decoration: underline;
 }

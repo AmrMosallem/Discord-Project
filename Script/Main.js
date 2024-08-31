@@ -1,5 +1,4 @@
-
-if(!localStorage.getItem("signedUserName")){
+if (!localStorage.getItem("signedUserName")) {
   window.location.href = "index.html";
 }
 
@@ -20,6 +19,7 @@ channels.forEach((channel) => {
 });
 
 function loadChannel(channelName) {
+  document.getElementById("loading-messages").style.display = "block";
   channels.forEach((channel) => {
     channel.classList.remove("channels-active");
   });
@@ -33,16 +33,26 @@ function loadChannel(channelName) {
     "chat-desc"
   ).innerHTML = `This is the start of ${channelName} channel.`;
 
-  document.querySelectorAll(".message").forEach((message) => {
+  retrieveMessagesFromFirebase();
+ /*  document.querySelectorAll(".message").forEach((message) => {
     message.remove();
   });
   let chat = document.getElementById("chat");
-  let messagesArray = JSON.parse(localStorage.getItem(channelName));
-  if (messagesArray) {
-    messagesArray.forEach((messageObject) => {
-      chat.appendChild(createMessage(messageObject));
+
+  let messagesArray = retrieveMessagesFromFirebase(channelName)
+    .then((messagesArray) => {
+      // console.log("Retrieved messages:", messagesArray);
+      return messagesArray;
+    })
+    .then((messagesArray) => {
+      document.getElementById("loading-messages").style.display = "none";
+      if (messagesArray) {
+        messagesArray.forEach((messageObject) => {
+          chat.appendChild(createMessage(messageObject));
+        });
+      }
     });
-  }
+  listenForMessages();*/
   if (document.getElementById("last-message"))
     document
       .getElementById("last-message")
@@ -55,7 +65,7 @@ document.getElementById("search-input").addEventListener("input", function () {
   let regex = new RegExp(searchValue, "gi");
   messages.forEach(function (message) {
     if (
-      regex.test(message.querySelector(".message-text p").innerHTML) ||
+      regex.test(message.querySelector(".message-text bdi").innerHTML) ||
       regex.test(
         message.querySelector(".message-header .message-name").innerHTML
       )
@@ -67,12 +77,9 @@ document.getElementById("search-input").addEventListener("input", function () {
   });
 });
 
-
-
 let plusMenu = document.getElementById("plus-menu");
 
-function hidePlusMenu (event) {
-
+function hidePlusMenu(event) {
   if (!document.querySelector(".plus-button").contains(event.target)) {
     plusMenu.classList.add("plus-menu-inactive");
     document.removeEventListener("click", hidePlusMenu);
@@ -81,16 +88,14 @@ function hidePlusMenu (event) {
 
 document.querySelector(".plus-button").onclick = () => {
   plusMenu.classList.remove("plus-menu-inactive");
- document.addEventListener("click", hidePlusMenu);
+  document.addEventListener("click", hidePlusMenu);
 };
-
-
 
 document.querySelectorAll(".member-container").forEach((member) => {
   member.addEventListener("click", () => {
     let memberOverview = member.querySelector(".member-overview");
     memberOverview.classList.add("member-overview-active");
-    
+
     function hideMemberOverview(event) {
       if (!member.contains(event.target)) {
         memberOverview.classList.remove("member-overview-active");
@@ -100,3 +105,9 @@ document.querySelectorAll(".member-container").forEach((member) => {
     document.addEventListener("click", hideMemberOverview);
   });
 });
+
+document.getElementById("log-out").onclick = () => {
+  localStorage.removeItem("signedUserName");
+  localStorage.removeItem("signedUserImg");
+  window.location.href = "index.html";
+};

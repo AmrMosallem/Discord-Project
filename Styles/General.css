@@ -2,10 +2,10 @@ body {
   font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
     sans-serif, "Apple Symbols";
   margin: 0;
-  background-image: url("../Images/wallpaper2.jpg");
+  /* background-image: url("../Images/wallpaper2.jpg");
   background-size: cover;
-  background-position: bottom;
-  background-color: rgb(48, 49, 56);
+  background-position: bottom; */
+  background:#313338;
   display: grid;
   grid-template-columns: 315px 1fr;
   overflow:hidden;

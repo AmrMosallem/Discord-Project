@@ -1,6 +1,6 @@
 .main-section {
-  background-color: #31333886;
-  background-color: #1c1c1f95;
+  /* background-color: #31333886;
+  background-color: #1c1c1f95; */
 }
 .main-section:has(#member-list-checkbox:checked) .main-section-grid {
   grid-template-columns: 1fr 240px;
@@ -490,6 +490,7 @@
   flex: 1;
   overflow-y: scroll;
   overflow-x: hidden;
+
 }
 .chat::-webkit-scrollbar {
   width: 8px;
@@ -797,4 +798,12 @@
 .message-edit-input::placeholder {
   color: rgba(255, 255, 255, 0.2);
   font-family: "gg sans";
+}
+
+#loading-messages{
+  margin-top: 100px;
+  color:#93979e;;
+  font-family: "gg sans";
+  font-size: 64px;
+  font-weight: bold;
 }

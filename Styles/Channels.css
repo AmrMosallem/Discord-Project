@@ -251,7 +251,9 @@
   margin-top: -21px;
 }
 
-
+#log-out{
+  color:rgb(255, 47, 0);
+}
 #show-main-section-button{
   display: none;
 }

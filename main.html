@@ -16,6 +16,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
@@ -102,9 +103,9 @@
                         </div>
                     </div>
                 </div>
-
-                <i class="fa-solid fa-microphone disabled"><span class="tooltip">Turn Off Microphone</span></i>
-                <i class="fa-solid fa-headphones disabled"><span class="tooltip">Deafen</span></i>
+                <i class="fa-solid fa-arrow-right-from-bracket" id="log-out"><span class="tooltip">Log Out</span></i>
+                <!-- <i class="fa-solid fa-microphone disabled"><span class="tooltip">Turn Off Microphone</span></i>
+                <i class="fa-solid fa-headphones disabled"><span class="tooltip">Deafen</span></i> -->
                 <i class="fa-solid fa-gear disabled"><span class="tooltip">User Settings</span></i>
             </div>
         </section>
@@ -139,13 +140,14 @@
                         <div class="chat-hash">#</div>
                         <p id="chat-title">Welcome to #community-announcements!</p>
                         <p id="chat-desc">This is the start of #community-announcements channel.</p>
-                    </div>
+                        <p id = "loading-messages">Channel is Empty</p>
+                      </div>
 
                 </div>
                 <div class="message-bar">
 
                     <i class="fa-solid fa-circle-plus plus-button">
-                        <div id="plus-menu" class ="plus-menu-inactive">
+                        <div id="plus-menu" class="plus-menu-inactive">
                             <p class="disabled"><i class="fa-solid fa-file-arrow-up "></i>Upload a File</p>
                             <p class="disabled"><i class="fa-solid fa-pen-to-square "></i>Create Thread</p>
                             <p class="disabled"><i class="fa-solid fa-square-poll-horizontal "></i>Create Poll</p>
@@ -188,207 +190,209 @@
 
 
                 <!-- amr -->
-             
-                    <div class="member-container member-offline">
-                        <div class="member-img-container">
-                            <div class="member-img"><img src="Images/amr.jpg" /></div>
-                            <div class="member-overview">
-                                <div class="upper-overview" style="background-image: url('Images/amr-back.jpg'); ">
-                                    <div class="member-img-overview"><img src="Images/amr.jpg" /></div>
-                                </div>
-                                <div class="lower-overview">
-                                    <p class="member-name">amr</p>
-                                    <p class="member-username">amrx64</p>
 
-                                    <p class="member-bio">hi</p>
-                                    <div class="roles">
-                                        <p class="role bf-orange">Admin</p>
-                                        <p class="role bf-yellow">Frontend Developers</p>
-                                    </div>
-                                    <!-- <button><i class="fa-solid fa-pen"></i> Edit Profile</button> -->
-                                    <input class="overview-input" type="text" placeholder="Message @amr">
-                                </div>
+                <div class="member-container member-offline">
+                    <div class="member-img-container">
+                        <div class="member-img"><img src="Images/amr.jpg" /></div>
+                        <div class="member-overview">
+                            <div class="upper-overview" style="background-image: url('Images/amr-back.jpg'); ">
+                                <div class="member-img-overview"><img src="Images/amr.jpg" /></div>
                             </div>
+                            <div class="lower-overview">
+                                <p class="member-name">amr</p>
+                                <p class="member-username">amrx64</p>
 
+                                <p class="member-bio">hi</p>
+                                <div class="roles">
+                                    <p class="role bf-orange">Admin</p>
+                                    <p class="role bf-yellow">Frontend Developers</p>
+                                </div>
+                                <!-- <button><i class="fa-solid fa-pen"></i> Edit Profile</button> -->
+                                <input class="overview-input" type="text" placeholder="Message @amr">
+                            </div>
                         </div>
 
-                        <div class="member-info">
-                            <p class="member-name fc-orange">amr <i class="fa-solid fa-crown fs-12"></i></p>
-                            <span class="member-status member-status-active"></span>
-                        </div>
                     </div>
+
+                    <div class="member-info">
+                        <p class="member-name fc-orange">amr <i class="fa-solid fa-crown fs-12"></i></p>
+                        <span class="member-status member-status-active"></span>
+                    </div>
+                </div>
                 <!-- mazen -->
-              
-                    <div class="member-container member-offline">
-                        <div class="member-img-container">
-                            <div class="member-img"><img src="Images/mazen.jpg" /></div>
-                            <div class="member-overview">
-                                <div class="upper-overview">
-                                    <div class="member-img-overview"><img src="Images/mazen.jpg" /></div>
+
+                <div class="member-container member-offline">
+                    <div class="member-img-container">
+                        <div class="member-img"><img src="Images/mazen.jpg" /></div>
+                        <div class="member-overview">
+                            <div class="upper-overview">
+                                <div class="member-img-overview"><img src="Images/mazen.jpg" /></div>
+                            </div>
+                            <div class="lower-overview">
+                                <p class="member-name">mazen_3lwany</p>
+                                <p class="member-username">mazen_3lwany</p>
+                                <div class="Mutual">2 Mutual Friends &#x2022; 1 Mutual Servers</div>
+                                <p class="member-bio"></p>
+                                <div class="roles">
+                                    <p class="role bf-yellow">Frontend Developers</p>
                                 </div>
-                                <div class="lower-overview">
-                                    <p class="member-name">mazen_3lwany</p>
-                                    <p class="member-username">mazen_3lwany</p>
-                                    <div class="Mutual">2 Mutual Friends &#x2022; 1 Mutual Servers</div>
-                                    <p class="member-bio"></p>
-                                    <div class="roles">
-                                        <p class="role bf-yellow">Frontend Developers</p>
-                                    </div>
-                                    <input class="overview-input" type="text" placeholder="Message @mazen_3lwany">
-                                </div>
+                                <input class="overview-input" type="text" placeholder="Message @mazen_3lwany">
                             </div>
                         </div>
-
-                        <div class="member-info">
-                            <p class="member-name fc-yellow">mazen_3lwany</p>
-                            <span class="member-status"></span>
-                        </div>
-
                     </div>
+
+                    <div class="member-info">
+                        <p class="member-name fc-yellow">mazen_3lwany</p>
+                        <span class="member-status"></span>
+                    </div>
+
+                </div>
 
 
                 <!-- moatasem -->
-                    <div class="member-container member-offline">
-                        <div class="member-img-container">
-                            <div class="member-img "><img src="Images/moatasem.jpg" /></div>
+                <div class="member-container member-offline">
+                    <div class="member-img-container">
+                        <div class="member-img "><img src="Images/moatasem.jpg" /></div>
 
-                            <div class="member-overview">
-                                <div class="upper-overview">
-                                    <div class="member-img-overview"><img src="Images/moatasem.jpg" /></div>
+                        <div class="member-overview">
+                            <div class="upper-overview">
+                                <div class="member-img-overview"><img src="Images/moatasem.jpg" /></div>
+                            </div>
+                            <div class="lower-overview">
+                                <p class="member-name">Moatasem</p>
+                                <p class="member-username">moatasem2569</p>
+                                <div class="Mutual">5 Mutual Friends &#x2022; 2 Mutual Servers</div>
+                                <p class="member-bio"></p>
+                                <div class="roles">
+                                    <p class="role bf-yellow">Frontend Developers</p>
                                 </div>
-                                <div class="lower-overview">
-                                    <p class="member-name">Moatasem</p>
-                                    <p class="member-username">moatasem2569</p>
-                                    <div class="Mutual">5 Mutual Friends &#x2022; 2 Mutual Servers</div>
-                                    <p class="member-bio"></p>
-                                    <div class="roles">
-                                        <p class="role bf-yellow">Frontend Developers</p>
-                                    </div>
-                                    <input class="overview-input" type="text" placeholder="Message @Moatasem">
-                                </div>
+                                <input class="overview-input" type="text" placeholder="Message @Moatasem">
                             </div>
                         </div>
-
-                        <div class="member-info">
-                            <p class="member-name fc-yellow">Moatasem</p>
-                            <span class="member-status"></span>
-                        </div>
                     </div>
+
+                    <div class="member-info">
+                        <p class="member-name fc-yellow">Moatasem</p>
+                        <span class="member-status"></span>
+                    </div>
+                </div>
 
                 <!-- mohamed -->
-                    <div class="member-container member-offline">
-                        <div class="member-img-container">
-                            <div class="member-img "><img src="Images/mohamed.jpg" /></div>
+                <div class="member-container member-offline">
+                    <div class="member-img-container">
+                        <div class="member-img "><img src="Images/mohamed.jpg" /></div>
 
-                            <div class="member-overview">
-                                <div class="upper-overview">
-                                    <div class="member-img-overview"><img src="Images/mohamed.jpg" /></div>
+                        <div class="member-overview">
+                            <div class="upper-overview">
+                                <div class="member-img-overview"><img src="Images/mohamed.jpg" /></div>
+                            </div>
+                            <div class="lower-overview">
+                                <p class="member-name">Mohamed</p>
+                                <p class="member-username">Mohamed97539</p>
+                                <div class="Mutual">5 Mutual Friends &#x2022; 2 Mutual Servers</div>
+                                <p class="member-bio">https://github.com/moh123mos/</p>
+                                <div class="roles">
+                                    <p class="role bf-yellow">Frontend Developers</p>
                                 </div>
-                                <div class="lower-overview">
-                                    <p class="member-name">Mohamed</p>
-                                    <p class="member-username">Mohamed97539</p>
-                                    <div class="Mutual">5 Mutual Friends &#x2022; 2 Mutual Servers</div>
-                                    <p class="member-bio">https://github.com/moh123mos/</p>
-                                    <div class="roles">
-                                        <p class="role bf-yellow">Frontend Developers</p>
-                                    </div>
-                                    <input class="overview-input" type="text" placeholder="Message @Mohamed">
-                                </div>
+                                <input class="overview-input" type="text" placeholder="Message @Mohamed">
                             </div>
                         </div>
-
-                        <div class="member-info">
-                            <p class="member-name fc-yellow">Mohamed</p>
-                            <span class="member-status"></span>
-                        </div>
                     </div>
+
+                    <div class="member-info">
+                        <p class="member-name fc-yellow">Mohamed</p>
+                        <span class="member-status"></span>
+                    </div>
+                </div>
                 <!-- moamen -->
-                    <div class="member-container member-offline">
-                        <div class="member-img-container">
-                            <div class="member-img"><img src="Images/moamen.jpg" /></div>
-                            <div class="member-overview">
-                                <div class="upper-overview">
-                                    <div class="member-img-overview"><img src="Images/moamen.jpg" /></div>
-                                </div>
-                                <div class="lower-overview">
-                                    <p class="member-name">Moamen</p>
-                                    <p class="member-username">moamen7halaf</p>
-                                    <div class="Mutual">2 Mutual Friends &#x2022; 1 Mutual Servers</div>
-                                    <p class="member-bio">https://github.com/Moamen-Khalaf</p>
-                                    <div class="roles">
-                                        <p class="role bf-yellow">Frontend Developers</p>
-                                    </div>
-                                    <input class="overview-input" type="text" placeholder="Message @Moamen">
-                                </div>
+                <div class="member-container member-offline">
+                    <div class="member-img-container">
+                        <div class="member-img"><img src="Images/moamen.jpg" /></div>
+                        <div class="member-overview">
+                            <div class="upper-overview">
+                                <div class="member-img-overview"><img src="Images/moamen.jpg" /></div>
                             </div>
-
+                            <div class="lower-overview">
+                                <p class="member-name">Moamen</p>
+                                <p class="member-username">moamen7halaf</p>
+                                <div class="Mutual">2 Mutual Friends &#x2022; 1 Mutual Servers</div>
+                                <p class="member-bio">https://github.com/Moamen-Khalaf</p>
+                                <div class="roles">
+                                    <p class="role bf-yellow">Frontend Developers</p>
+                                </div>
+                                <input class="overview-input" type="text" placeholder="Message @Moamen">
+                            </div>
                         </div>
 
-                        <div class="member-info">
-                            <p class="member-name fc-yellow">Moamen</p>
-                            <span class="member-status">اللي مش هيحل هيتفلتر</span>
-                        </div>
                     </div>
+
+                    <div class="member-info">
+                        <p class="member-name fc-yellow">Moamen</p>
+                        <span class="member-status">اللي مش هيحل هيتفلتر</span>
+                    </div>
+                </div>
                 <!-- sara -->
-                    <div class="member-container member-offline">
-                        <div class="member-img-container">
-                            <div class="member-img "><img src="Images/sara.jpg" /></div>
+                <div class="member-container member-offline">
+                    <div class="member-img-container">
+                        <div class="member-img "><img src="Images/sara.jpg" /></div>
 
-                            <div class="member-overview">
-                                <div class="upper-overview">
-                                    <div class="member-img-overview"><img src="Images/sara.jpg" /></div>
+                        <div class="member-overview">
+                            <div class="upper-overview">
+                                <div class="member-img-overview"><img src="Images/sara.jpg" /></div>
+                            </div>
+                            <div class="lower-overview">
+                                <p class="member-name">Sara</p>
+                                <p class="member-username">sara_</p>
+                                <div class="Mutual">1 Mutual Servers</div>
+                                <p class="member-bio"></p>
+                                <div class="roles">
+                                    <p class="role bf-yellow">Frontend Developers</p>
                                 </div>
-                                <div class="lower-overview">
-                                    <p class="member-name">Sara</p>
-                                    <p class="member-username">sara_</p>
-                                    <div class="Mutual">1 Mutual Servers</div>
-                                    <p class="member-bio"></p>
-                                    <div class="roles">
-                                        <p class="role bf-yellow">Frontend Developers</p>
-                                    </div>
-                                    <input class="overview-input" type="text" placeholder="Message @Sara">
-                                </div>
+                                <input class="overview-input" type="text" placeholder="Message @Sara">
                             </div>
                         </div>
-
-                        <div class="member-info">
-                            <p class="member-name fc-yellow">Sara</p>
-                            <span class="member-status"></span>
-                        </div>
                     </div>
+
+                    <div class="member-info">
+                        <p class="member-name fc-yellow">Sara</p>
+                        <span class="member-status"></span>
+                    </div>
+                </div>
                 <!-- shahd -->
-                    <div class="member-container member-offline">
-                        <div class="member-img-container">
-                            <div class="member-img "><img src="Images/shahd.jpg" /></div>
+                <div class="member-container member-offline">
+                    <div class="member-img-container">
+                        <div class="member-img "><img src="Images/shahd.jpg" /></div>
 
-                            <div class="member-overview">
-                                <div class="upper-overview">
-                                    <div class="member-img-overview"><img src="Images/shahd.jpg" /></div>
+                        <div class="member-overview">
+                            <div class="upper-overview">
+                                <div class="member-img-overview"><img src="Images/shahd.jpg" /></div>
+                            </div>
+                            <div class="lower-overview">
+                                <p class="member-name">Shahd</p>
+                                <p class="member-username">shahd22</p>
+                                <div class="Mutual">1 Mutual Servers</div>
+                                <p class="member-bio"></p>
+                                <div class="roles">
+                                    <p class="role bf-yellow">Frontend Developers</p>
                                 </div>
-                                <div class="lower-overview">
-                                    <p class="member-name">Shahd</p>
-                                    <p class="member-username">shahd22</p>
-                                    <div class="Mutual">1 Mutual Servers</div>
-                                    <p class="member-bio"></p>
-                                    <div class="roles">
-                                        <p class="role bf-yellow">Frontend Developers</p>
-                                    </div>
-                                    <input class="overview-input" type="text" placeholder="Message @Shahd">
-                                </div>
+                                <input class="overview-input" type="text" placeholder="Message @Shahd">
                             </div>
                         </div>
-
-                        <div class="member-info">
-                            <p class="member-name fc-yellow">Shahd</p>
-                            <span class="member-status"></span>
-                        </div>
                     </div>
+
+                    <div class="member-info">
+                        <p class="member-name fc-yellow">Shahd</p>
+                        <span class="member-status"></span>
+                    </div>
+                </div>
 
             </section>
         </div>
     </section>
-
-
+    <!-- Firebase App (core) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="Script/Message.js"></script>
     <script src="Script/Mobile.js"></script>
     <script src="Script/User.js"></script>
