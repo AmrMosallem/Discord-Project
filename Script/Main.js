@@ -50,7 +50,7 @@ function loadChannel(channelName) {
     "message-input"
   ).placeholder = `Message #${channelName}`;
   checkGuest();
-  retrieveMessagesFromFirebase();
+  retrieveMessagesFromFirebase(channelName);
   /*  document.querySelectorAll(".message").forEach((message) => {
     message.remove();
   });

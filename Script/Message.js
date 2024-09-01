@@ -1,4 +1,17 @@
 let chat = document.getElementById("chat");
+const firebaseConfig = {
+  apiKey: "AIzaSyDi5ZhyC7rltDlSf9LgfWlDh3Cb3_eE4fA",
+  authDomain: "discord-e7e5b.firebaseapp.com",
+  databaseURL:
+    "https://discord-e7e5b-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "discord-e7e5b",
+  storageBucket: "discord-e7e5b.appspot.com",
+  messagingSenderId: "82964440731",
+  appId: "1:82964440731:web:808091c777f6532b8ec83e",
+};
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
 if (!document.getElementById("last-message"))
   chat.innerHTML += `<span id="last-message"></span>`;
 
@@ -33,46 +46,52 @@ function getCurrentDate() {
   return `${month}/${day}/${year} ${hour}:${minute} ${apm}`;
 }
 let messageInput = document.getElementById("message-input");
-messageInput
-  .addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && !event.shiftKey && !messageInput.value == "") {
+document.getElementById("send").onclick = function () {
+  if (!messageInput.value == "") sendMessage();
+};
 
-      let replyimg, replyname, replytext;
-      if (MessageReply) {
-        replyimg = MessageReply.querySelector(".message-img img").src;
-        replyname = MessageReply.querySelector(".message-name").innerHTML;
-        replytext = MessageReply.querySelector(".message-text bdi").innerHTML;
-        document.getElementById("cancel-reply").click();
-      }
-      // imgsrc = document.getElementById("user-img").src;
-      // imgsrc = imgsrc.slice(imgsrc.indexOf("Images"), imgsrc.length);
-      // console.log(imgsrc);
-      let messageObject = {
-        replyImg: replyimg,
-        replyName: replyname,
-        replyText: replytext,
-        img: document.getElementById("user-img").src,
-        name: document.getElementById("user-name").innerHTML,
-        date: getCurrentDate(),
-        text: document.getElementById("message-input").value,
-      };
+messageInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && !event.shiftKey && !messageInput.value == "") {
+    sendMessage();
+  }
+});
 
-      chat.appendChild(createMessage(messageObject));
-      document.getElementById("last-message").scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-      });
-      // saveToLocalStorage();
-      storeMessagesInFirebase(getAllMessages());
-      setTimeout(function () {
-        document.getElementById("message-input").value = "";
-        document.getElementById("last-message").scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-        });
-      }, 0);
-    }
+function sendMessage() {
+  let replyimg, replyname, replytext;
+  if (MessageReply) {
+    replyimg = MessageReply.querySelector(".message-img img").src;
+    replyname = MessageReply.querySelector(".message-name").innerHTML;
+    replytext = MessageReply.querySelector(".message-text bdi").innerHTML;
+    document.getElementById("cancel-reply").click();
+  }
+  // imgsrc = document.getElementById("user-img").src;
+  // imgsrc = imgsrc.slice(imgsrc.indexOf("Images"), imgsrc.length);
+  // console.log(imgsrc);
+  let messageObject = {
+    replyImg: replyimg,
+    replyName: replyname,
+    replyText: replytext,
+    img: document.getElementById("user-img").src,
+    name: document.getElementById("user-name").innerHTML,
+    date: getCurrentDate(),
+    text: document.getElementById("message-input").value,
+  };
+
+  chat.appendChild(createMessage(messageObject));
+  document.getElementById("last-message").scrollIntoView({
+    behavior: "smooth",
+    block: "end",
   });
+  // saveToLocalStorage();
+  storeMessagesInFirebase(getAllMessages());
+  setTimeout(function () {
+    document.getElementById("message-input").value = "";
+    document.getElementById("last-message").scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+    });
+  }, 0);
+}
 
 function createMessage(messageObject) {
   if (document.getElementById("last-message"))
@@ -286,18 +305,6 @@ function getAllMessages() {
   return messagesArray;
 }
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDi5ZhyC7rltDlSf9LgfWlDh3Cb3_eE4fA",
-  authDomain: "discord-e7e5b.firebaseapp.com",
-  databaseURL: "https://discord-e7e5b-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "discord-e7e5b",
-  storageBucket: "discord-e7e5b.appspot.com",
-  messagingSenderId: "82964440731",
-  appId: "1:82964440731:web:808091c777f6532b8ec83e"
-};
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
 function storeMessagesInFirebase(messagesArray) {
   let channelName = localStorage.getItem("active-channel");
   const messagesRef = database.ref("channels/" + channelName);
@@ -311,14 +318,14 @@ function storeMessagesInFirebase(messagesArray) {
     });
 }
 
-function getMessagesFromFirebase(callback) {
-  let channelName = localStorage.getItem("active-channel");
-  const messagesRef = database.ref("channels/" + channelName);
-  messagesRef.on("value", (snapshot) => {
-    const data = snapshot.val();
-    callback(data);
-  });
-}
+// function getMessagesFromFirebase(callback) {
+//   let channelName = localStorage.getItem("active-channel");
+//   const messagesRef = database.ref("channels/" + channelName);
+//   messagesRef.on("value", (snapshot) => {
+//     const data = snapshot.val();
+//     callback(data);
+//   });
+// }
 
 // function retrieveMessagesFromFirebase(channelName) {
 //   // Reference to the "frontend-discussions" key in Firebase Realtime Database
@@ -334,12 +341,17 @@ function getMessagesFromFirebase(callback) {
 //       return [];
 //     });
 // }
-function retrieveMessagesFromFirebase() {
-  let channelName = localStorage.getItem("active-channel");
+function retrieveMessagesFromFirebase(channelName) {
   // Reference to the "frontend-discussions" key in Firebase Realtime Database
-  const messagesRef = database.ref("channels/" + channelName);
+  const messagesRef = database.ref(
+    "channels/" + localStorage.getItem("active-channel")
+  );
   return messagesRef.on("value", (snapshot) => {
     const messages = snapshot.val();
+    if (channelName != localStorage.getItem("active-channel")) {
+      // console.log("Returned");
+      return;
+    }
 
     let chat = document.getElementById("chat");
     document.querySelectorAll(".message").forEach((message) => {

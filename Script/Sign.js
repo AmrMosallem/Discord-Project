@@ -150,9 +150,7 @@ function signInWithEmail(email, password) {
       passwordInfo = password;
       localStorage.setItem("signedUserName", userName);
       localStorage.setItem("signedUserImg", getRawSource(UserImg));
-      backButton.style.display = "none";
-      emailInfo = email;
-      passwordInfo = password;
+      backButton.click();      
       window.location.href = "main.html";
     })
     .catch((error) => {

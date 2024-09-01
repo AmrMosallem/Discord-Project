@@ -807,3 +807,10 @@
   font-size: 64px;
   font-weight: bold;
 }
+
+#send{
+  transform: rotateZ(45deg) ;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 24px;
+}
