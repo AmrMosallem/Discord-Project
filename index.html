@@ -14,84 +14,98 @@
 
 <body>
 
+    <div class="main-container">
+        <main>
+            <span id="title">Discord</span>
+            <div class="signed-in" style="display: none;">
+                <span>You are already signed in as:</span>
+                <div class="signed-user"><img src="Images/amr.jpg" class="user-img">
+                    <span class="user-name">amr</span>
+                </div>
+                <div class="signed-buttons"><button id="continue">Continue</button><span id="sign-out">Not you?</span>
+                </div>
+                <span style="margin-top: 30px;">Or sign in as:</span>
+            </div>
 
-    <main>
-        <span id="title">Discord</span>
-        <div class="signed-in" style="display: none;">
-            <span>You are already signed in as:</span>
-            <div class="signed-user"><img src="Images/amr.jpg" class="user-img">
-                <span class="user-name">amr</span>
-            </div>
-            <div class="signed-buttons"><button id="continue">Continue</button><span id="sign-out">Not you?</span></div>
-            <span style="margin-top: 30px;">Or sign in as:</span>
-        </div>
-        </div>
-        <div id="users">
-            <div class="user">
-                <div class="user-img-container"><img src="Images/amr.jpg" class="user-img">
-                </div>
-                <span class="user-name">amr</span>
-                <i class="fa-solid fa-arrow-right next-button"></i>
-            </div>
-            <div class="user">
-                <div class="user-img-container"><img src="Images/moamen.jpg" class="user-img">
-                </div>
-                <span class="user-name">Moamen</span>
-                <i class="fa-solid fa-arrow-right next-button"></i>
-            </div>
-            <div class="user">
-                <div class="user-img-container"><img src="Images/mazen.jpg" class="user-img">
-                </div>
-                <span class="user-name">mazen_3lwany</span>
-                <i class="fa-solid fa-arrow-right next-button"></i>
-            </div>
-            <div class="user">
-                <div class="user-img-container"><img src="Images/mohamed.jpg" class="user-img">
-                </div>
-                <span class="user-name">Mohamed</span>
-                <i class="fa-solid fa-arrow-right next-button"></i>
-            </div>
-            <div class="user">
-                <div class="user-img-container"><img src="Images/moatasem.jpg" class="user-img">
-                </div>
-                <span class="user-name">Moatasem</span>
-                <i class="fa-solid fa-arrow-right next-button"></i>
-            </div>
-            <div class="user">
-                <div class="user-img-container"><img src="Images/sara.jpg" class="user-img">
-                </div>
-                <span class="user-name">Sara</span>
-                <i class="fa-solid fa-arrow-right next-button"></i>
-            </div>
-            <div class="user">
-                <div class="user-img-container"><img src="Images/shahd.jpg" class="user-img">
-                </div>
-                <span class="user-name">Shahd</span>
-                <i class="fa-solid fa-arrow-right next-button"></i>
-            </div>
-            <span id="guest">Or Sign In as Guest</span>
-        </div>
-        <div id="sign-in-container">
-            <div id="sign-in-user">
-                <div class="img-container"> <img src="Images/amr.jpg" class="user-img">
-                    <div class="border">
-                        <div class="border blurred"></div>
+            <div id="users">
+                <div class="user">
+                    <div class="user-img-container"><img src="Images/amr.jpg" class="user-img">
                     </div>
+                    <span class="user-name">amr</span>
+                    <i class="fa-solid fa-arrow-right next-button"></i>
                 </div>
-                <span class="user-name">amr</span>
+                <div class="user">
+                    <div class="user-img-container"><img src="Images/moamen.jpg" class="user-img">
+                    </div>
+                    <span class="user-name">Moamen</span>
+                    <i class="fa-solid fa-arrow-right next-button"></i>
+                </div>
+                <div class="user">
+                    <div class="user-img-container"><img src="Images/mazen.jpg" class="user-img">
+                    </div>
+                    <span class="user-name">mazen_3lwany</span>
+                    <i class="fa-solid fa-arrow-right next-button"></i>
+                </div>
+                <div class="user">
+                    <div class="user-img-container"><img src="Images/mohamed.jpg" class="user-img">
+                    </div>
+                    <span class="user-name">Mohamed</span>
+                    <i class="fa-solid fa-arrow-right next-button"></i>
+                </div>
+                <div class="user">
+                    <div class="user-img-container"><img src="Images/moatasem.jpg" class="user-img">
+                    </div>
+                    <span class="user-name">Moatasem</span>
+                    <i class="fa-solid fa-arrow-right next-button"></i>
+                </div>
+                <div class="user">
+                    <div class="user-img-container"><img src="Images/sara.jpg" class="user-img">
+                    </div>
+                    <span class="user-name">Sara</span>
+                    <i class="fa-solid fa-arrow-right next-button"></i>
+                </div>
+                <div class="user">
+                    <div class="user-img-container"><img src="Images/shahd.jpg" class="user-img">
+                    </div>
+                    <span class="user-name">Shahd</span>
+                    <i class="fa-solid fa-arrow-right next-button"></i>
+                </div>
+                <span id="guest">Or Sign In as Guest</span>
             </div>
-            <div id="sign-in-form"><label for="password">Please enter your password:</label>
-                <input type="password" id="password" placeholder="Password">
+            <div id="sign-in-container">
+                <div id="sign-in-user">
+                    <div class="img-container"> <img src="Images/amr.jpg" class="user-img">
+                        <div class="border">
+                            <div class="border blurred"></div>
+                        </div>
+                    </div>
+                    <span class="user-name">amr</span>
+                </div>
+                <div id="sign-in-form">
+                    <label for="password">Please enter your Email:</label>
+                    <input type="email" id="email" placeholder="Your Email">
+                    <label for="password">Please enter your password:</label>
+                    <input type="password" id="password" placeholder="Password">
 
+                </div>
+                <button id="sign-in-button">Sign In</button>
             </div>
-            <button id="sign-in-button">Sign In</button>
-        </div>
-        <i class="fa-solid fa-arrow-left" id = "back-button"></i>
-        <div class="border">
-            <div class="border blurred"></div>
-        </div>
-    </main>
+            <i class="fa-solid fa-arrow-left" id="back-button"></i>
+            <div class="border">
+                <div class="border blurred"></div>
+            </div>
 
+            <div class="border">
+                <div class="border blurred"></div>
+            </div>
+        </main>
+    </div>
+    <!-- Firebase App (core) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+    <script src="Script/UserInfo.js"></script>
     <script src="Script/Sign.js"></script>
 </body>
 

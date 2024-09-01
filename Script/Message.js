@@ -32,11 +32,11 @@ function getCurrentDate() {
   minute = minute < 10 ? "0" + minute : minute;
   return `${month}/${day}/${year} ${hour}:${minute} ${apm}`;
 }
-
-document
-  .getElementById("message-input")
+let messageInput = document.getElementById("message-input");
+messageInput
   .addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
+    if (event.key === "Enter" && !event.shiftKey && !messageInput.value == "") {
+
       let replyimg, replyname, replytext;
       if (MessageReply) {
         replyimg = MessageReply.querySelector(".message-img img").src;
@@ -56,6 +56,7 @@ document
         date: getCurrentDate(),
         text: document.getElementById("message-input").value,
       };
+
       chat.appendChild(createMessage(messageObject));
       document.getElementById("last-message").scrollIntoView({
         behavior: "smooth",
@@ -288,12 +289,11 @@ function getAllMessages() {
 const firebaseConfig = {
   apiKey: "AIzaSyDi5ZhyC7rltDlSf9LgfWlDh3Cb3_eE4fA",
   authDomain: "discord-e7e5b.firebaseapp.com",
-  databaseURL:
-    "https://discord-e7e5b-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL: "https://discord-e7e5b-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "discord-e7e5b",
   storageBucket: "discord-e7e5b.appspot.com",
   messagingSenderId: "82964440731",
-  appId: "1:82964440731:web:808091c777f6532b8ec83e",
+  appId: "1:82964440731:web:808091c777f6532b8ec83e"
 };
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();

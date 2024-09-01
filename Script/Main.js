@@ -1,12 +1,26 @@
-if (!localStorage.getItem("signedUserName")) {
-  window.location.href = "index.html";
-}
+// if (!localStorage.getItem("signedUserName")) {
+//   window.location.href = "index.html";
+// }
+const auth = firebase.auth();
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+    console.log("User is signed in:", user);
+  } else {
+    // No user is signed in.
+    console.log("No user is signed in.");
+    // Redirect to login page
+  }
+});
 
 let channels = document.querySelectorAll(".channels");
 let activeChannel = "community-announcements";
 
 if (localStorage.getItem("active-channel")) {
   activeChannel = localStorage.getItem("active-channel");
+}
+else {
+  localStorage.setItem("active-channel", activeChannel);
 }
 loadChannel(activeChannel);
 
@@ -32,10 +46,12 @@ function loadChannel(channelName) {
   document.getElementById(
     "chat-desc"
   ).innerHTML = `This is the start of ${channelName} channel.`;
-  document.getElementById("message-input").placeholder = `Message #${channelName}`;
+  document.getElementById(
+    "message-input"
+  ).placeholder = `Message #${channelName}`;
   checkGuest();
   retrieveMessagesFromFirebase();
- /*  document.querySelectorAll(".message").forEach((message) => {
+  /*  document.querySelectorAll(".message").forEach((message) => {
     message.remove();
   });
   let chat = document.getElementById("chat");
@@ -110,14 +126,21 @@ document.querySelectorAll(".member-container").forEach((member) => {
 document.getElementById("log-out").onclick = () => {
   localStorage.removeItem("signedUserName");
   localStorage.removeItem("signedUserImg");
-  window.location.href = "index.html";
+  firebase.auth().signOut().then(() => {
+    console.log('User signed out.');
+    window.location.href = 'index.html'; // Redirect to login page after sign-out
+  }).catch((error) => {
+    console.error('Sign out error:', error);
+  });
+
 };
 
-
-function checkGuest(){
-  if(localStorage.getItem("signedUserName") == "Guest") {
-    if(document.getElementById("frontend-role")) document.querySelector(".role-text").remove();
-    document.getElementById("message-input").placeholder = "You cannot send messages as Guest.";
+function checkGuest() {
+  if (localStorage.getItem("signedUserName") == "Guest") {
+    if (document.getElementById("frontend-role"))
+      document.querySelector(".role-text").remove();
+    document.getElementById("message-input").placeholder =
+      "You cannot send messages as Guest.";
     document.getElementById("message-input").disabled = true;
     document.getElementById("message-input").style.cursor = "not-allowed";
   }

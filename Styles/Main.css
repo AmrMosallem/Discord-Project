@@ -1,6 +1,6 @@
 .main-section {
-  /* background-color: #31333886;
-  background-color: #1c1c1f95; */
+  /* background-color: #31333886;*/
+  background-color: #1c1c1fb3; 
 }
 .main-section:has(#member-list-checkbox:checked) .main-section-grid {
   grid-template-columns: 1fr 240px;
