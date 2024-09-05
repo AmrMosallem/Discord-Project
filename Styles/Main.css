@@ -656,7 +656,7 @@
   padding: 25px 210px;
 } */
 .message-emojis{
-  font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
   display: none;
   position: absolute;
   top: 0px;
