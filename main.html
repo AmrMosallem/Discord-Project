@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="Styles/Main.css" />
     <link rel="stylesheet" href="Styles/General.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -140,8 +144,8 @@
                         <div class="chat-hash">#</div>
                         <p id="chat-title">Welcome to #community-announcements!</p>
                         <p id="chat-desc">This is the start of #community-announcements channel.</p>
-                        <p id = "loading-messages">Channel is Empty</p>
-                      </div>
+                        <p id="loading-messages">Loading Channel...</p>
+                    </div>
 
                 </div>
                 <div class="message-bar">
@@ -395,8 +399,8 @@
     <!-- Firebase Realtime Database -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    
 
+    <script src="Script/Utilities.js"></script>
     <script src="Script/Message.js"></script>
     <script src="Script/Mobile.js"></script>
     <script src="Script/User.js"></script>

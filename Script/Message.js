@@ -97,98 +97,19 @@ function createMessage(messageObject) {
   if (document.getElementById("last-message"))
     document.getElementById("last-message").removeAttribute("id");
 
-  let reply = document.createElement("div");
-  reply.className = "message-reply";
-
-  if (messageObject.replyName) {
-    let replyImg = document.createElement("img");
-    replyImg.src = messageObject.replyImg;
-    let replyName = document.createElement("span");
-    replyName.className = "message-reply-name";
-    replyName.innerHTML = messageObject.replyName;
-    let replyText = document.createElement("span");
-    replyText.className = "message-reply-text";
-    replyText.innerHTML = messageObject.replyText;
-    reply.appendChild(replyImg);
-    reply.appendChild(replyName);
-    reply.appendChild(replyText);
-  }
+  let reply = createReply(messageObject);
 
   let messageIcons = document.createElement("div");
   messageIcons.className = "message-icons";
 
-  // let reactIcon = document.createElement("i");
-  // reactIcon.className = "fa-solid fa-face-smile";
+  let reactIcon = createReactIcon();
 
-  let replyIcon = document.createElement("i");
-  replyIcon.className = "fa-solid fa-reply";
-  replyIcon.onclick = function () {
-    let message = this.parentElement.parentElement;
-    document.querySelector(".message-bar").classList.add("message-bar-replied");
-    let replyBar = document.querySelector(".reply-bar");
-    document.getElementById("reply-name").innerHTML =
-      "@" + message.querySelector(".message-header .message-name").innerHTML;
-    replyBar.classList.add("reply-bar-active");
-    MessageReply = message;
-    document.getElementById("message-input").focus();
-  };
-  let editIcon = document.createElement("i");
-  editIcon.className = "fa-solid fa-pen";
+  let replyIcon = createReplyIcon();
+  let editIcon = createEditIcon();
 
-  editIcon.onclick = function () {
-    let message = this.parentElement.parentElement;
-    let messageText = message.querySelector(".message-text bdi");
-    let editInput = document.createElement("textarea");
-    editInput.classList = "message-edit-input";
-    editInput.value = messageText.innerHTML;
-    messageText.remove();
-    message.querySelector(".message-text").appendChild(editInput);
-    editInput.focus();
-    editInput.onblur = function () {
-      messageText.innerHTML = editInput.value;
-      message.querySelector(".message-text").appendChild(messageText);
-      storeMessagesInFirebase(getAllMessages());
-      editInput.remove();
-    };
-    editInput.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" && !event.shiftKey) {
-        editInput.blur();
-      }
-    });
-  };
+  let deleteIcon = createDeleteIcon();
 
-  let deleteIcon = document.createElement("i");
-  deleteIcon.className = "fa-solid fa-trash";
-  deleteIcon.style = "color: rgb(255, 50, 50)";
-  deleteIcon.onclick = function () {
-    let message = this.parentElement.parentElement;
-    document
-      .getElementById("confirm-container")
-      .classList.add("confirm-active");
-    let clonedMessage = this.parentElement.parentElement.cloneNode(true);
-    if (clonedMessage.querySelector(".message-reply"))
-      clonedMessage.querySelector(".message-reply").remove();
-    clonedMessage.classList = "confirm-message";
-    document
-      .getElementById("confirm-message-container")
-      .appendChild(clonedMessage);
-    document.getElementById("delete-button").onclick = function () {
-      message.remove();
-      storeMessagesInFirebase(getAllMessages());
-      clonedMessage.remove();
-      document
-        .getElementById("confirm-container")
-        .classList.remove("confirm-active");
-    };
-    document.getElementById("cancel-button").onclick = function () {
-      clonedMessage.remove();
-      document
-        .getElementById("confirm-container")
-        .classList.remove("confirm-active");
-    };
-  };
-
-  // messageIcons.appendChild(reactIcon);
+  messageIcons.appendChild(reactIcon);
   messageIcons.appendChild(replyIcon);
 
   if (document.getElementById("user-name").innerHTML == messageObject.name)
@@ -231,6 +152,30 @@ function createMessage(messageObject) {
   messageMedia.className = "message-media";
   let messageReactions = document.createElement("div");
   messageReactions.className = "message-reactions";
+  if (messageObject.reactions)
+    messageObject.reactions.forEach((react) => {
+      let reactContainer = document.createElement("div");
+      reactContainer.className = "message-react-container " + react.emoji;
+      let emoji = document.createElement("span");
+      emoji.className = "emoji";
+      emoji.innerHTML = react.emoji;
+      let reactCount = document.createElement("span");
+      reactCount.className = "message-react-count";
+      reactCount.innerHTML = react.count;
+      let reactors = document.createElement("span");
+      reactors.className = "message-reactors";
+      reactors.innerHTML = react.reactors;
+      reactContainer.appendChild(emoji);
+      reactContainer.appendChild(reactCount);
+      reactContainer.appendChild(reactors);
+      reactContainer.addEventListener("click", function () {
+        toggleReact(reactContainer);
+      });
+      if(react.reactors.includes(document.getElementById("user-name").innerHTML)) {
+        reactContainer.style.borderColor = "#4752c4";
+      }
+      messageReactions.appendChild(reactContainer);
+    });
 
   messageContent.appendChild(messageHeader);
   messageContent.appendChild(messageText);
@@ -253,41 +198,32 @@ function createMessage(messageObject) {
   return message;
 }
 
-function saveToLocalStorage() {
-  let messagesArray = [];
-  document.querySelectorAll(".message").forEach((message) => {
-    let replyimg, replyname, replytext;
-    if (message.querySelector(".message-reply")) {
-      replyimg = message.querySelector(".message-reply img").src;
-      replyname = message.querySelector(".message-reply-name").innerHTML;
-      replytext = message.querySelector(".message-reply-text").innerHTML;
-    }
-    let messageObject = {
-      replyImg: replyimg,
-      replyName: replyname,
-      replyText: replytext,
-      img: message.querySelector(".message-img img").src,
-      name: message.querySelector(".message-header .message-name").innerHTML,
-      date: message.querySelector(".message-header .message-date").innerHTML,
-      text: message.querySelector(".message-text bdi").innerHTML,
-    };
-    messagesArray.push(messageObject);
-  });
-
-  localStorage.setItem(
-    document.querySelector(".channels-active").id,
-    JSON.stringify(messagesArray)
-  );
-}
 function getAllMessages() {
   let messagesArray = [];
   document.querySelectorAll(".message").forEach((message) => {
-    let replyimg, replyname, replytext;
+    let replyimg,
+      replyname,
+      replytext,
+      reactions = [];
     if (message.querySelector(".message-reply")) {
       replyimg = getRawSource(message.querySelector(".message-reply img").src);
       replyname = message.querySelector(".message-reply-name").innerHTML;
       replytext = message.querySelector(".message-reply-text").innerHTML;
     }
+
+    if (message.querySelector(".message-react-container")) {
+      let messageReactions = message.querySelector(".message-reactions");
+      messageReactions
+        .querySelectorAll(".message-react-container")
+        .forEach((react) => {
+          reactions.push({
+            emoji: react.querySelector(".emoji").innerHTML,
+            count: react.querySelector(".message-react-count").innerHTML,
+            reactors: react.querySelector(".message-reactors").innerHTML,
+          });
+        });
+    }
+
     let messageObject = {
       img: getRawSource(message.querySelector(".message-img img").src),
       name: message.querySelector(".message-header .message-name").innerHTML,
@@ -298,6 +234,10 @@ function getAllMessages() {
       messageObject.replyName = replyname;
       messageObject.replyText = replytext;
       messageObject.replyImg = replyimg;
+    }
+
+    if (reactions.length > 0) {
+      messageObject.reactions = reactions;
     }
     messagesArray.push(messageObject);
   });
@@ -318,6 +258,70 @@ function storeMessagesInFirebase(messagesArray) {
     });
 }
 
+function retrieveMessagesFromFirebase(channelName) {
+  // Reference to the "frontend-discussions" key in Firebase Realtime Database
+
+  const messagesRef = database.ref(
+    "channels/" + localStorage.getItem("active-channel")
+  );
+  return messagesRef.on("value", (snapshot) => {
+    const messages = snapshot.val();
+    if (channelName != localStorage.getItem("active-channel")) {
+      // console.log("Returned");
+      return;
+    }
+    let messagesLength = getAllMessages().length;
+    let chat = document.getElementById("chat");
+    document.querySelectorAll(".message").forEach((message) => {
+      message.remove();
+    });
+    if (messages) {
+      document.getElementById("loading-messages").style.display = "none";
+      messages.forEach((messageObject) => {
+        chat.appendChild(createMessage(messageObject));
+      });
+    }
+    else {
+      document.getElementById("loading-messages").innerHTML = "Channel is Empty";}
+    if (messagesLength!= getAllMessages().length && document.getElementById("last-message"))
+    {  document.getElementById("last-message").scrollIntoView({ block: "end" });
+  }
+    // return messages ? messages : [];
+  });
+}
+
+
+function getRawSource(source) {
+  source = source.slice(source.indexOf("Images"), source.length);
+  return source;
+}
+
+// function saveToLocalStorage() {
+//   let messagesArray = [];
+//   document.querySelectorAll(".message").forEach((message) => {
+//     let replyimg, replyname, replytext;
+//     if (message.querySelector(".message-reply")) {
+//       replyimg = message.querySelector(".message-reply img").src;
+//       replyname = message.querySelector(".message-reply-name").innerHTML;
+//       replytext = message.querySelector(".message-reply-text").innerHTML;
+//     }
+//     let messageObject = {
+//       replyImg: replyimg,
+//       replyName: replyname,
+//       replyText: replytext,
+//       img: message.querySelector(".message-img img").src,
+//       name: message.querySelector(".message-header .message-name").innerHTML,
+//       date: message.querySelector(".message-header .message-date").innerHTML,
+//       text: message.querySelector(".message-text bdi").innerHTML,
+//     };
+//     messagesArray.push(messageObject);
+//   });
+
+//   localStorage.setItem(
+//     document.querySelector(".channels-active").id,
+//     JSON.stringify(messagesArray)
+//   );
+// }
 // function getMessagesFromFirebase(callback) {
 //   let channelName = localStorage.getItem("active-channel");
 //   const messagesRef = database.ref("channels/" + channelName);
@@ -341,35 +345,6 @@ function storeMessagesInFirebase(messagesArray) {
 //       return [];
 //     });
 // }
-function retrieveMessagesFromFirebase(channelName) {
-  // Reference to the "frontend-discussions" key in Firebase Realtime Database
-  const messagesRef = database.ref(
-    "channels/" + localStorage.getItem("active-channel")
-  );
-  return messagesRef.on("value", (snapshot) => {
-    const messages = snapshot.val();
-    if (channelName != localStorage.getItem("active-channel")) {
-      // console.log("Returned");
-      return;
-    }
-
-    let chat = document.getElementById("chat");
-    document.querySelectorAll(".message").forEach((message) => {
-      message.remove();
-    });
-    if (messages) {
-      document.getElementById("loading-messages").style.display = "none";
-
-      messages.forEach((messageObject) => {
-        chat.appendChild(createMessage(messageObject));
-      });
-    }
-    if (document.getElementById("last-message"))
-      document.getElementById("last-message").scrollIntoView({ block: "end" });
-    // return messages ? messages : [];
-  });
-}
-
 // function listenForMessages() {
 //   let channelName = localStorage.getItem("active-channel");
 //   const messagesRef = database.ref("channels/" + channelName);
@@ -400,7 +375,3 @@ function retrieveMessagesFromFirebase(channelName) {
 // retrieveMessagesFromFirebase().then((messagesArray) => {
 //   console.log('Retrieved messages:', messagesArray);
 // });
-function getRawSource(source) {
-  source = source.slice(source.indexOf("Images"), source.length);
-  return source;
-}
