@@ -1,6 +1,6 @@
 .main-section {
   /* background-color: #31333886;*/
-  background-color: #1c1c1fb3; 
+  background-color: #1c1c1fb3;
   backdrop-filter: blur(2px);
 }
 .main-section:has(#member-list-checkbox:checked) .main-section-grid {
@@ -31,7 +31,7 @@
   width: 125px;
   padding: 4px 7px;
   transition: 0.2s;
-  color:white;
+  color: white;
 }
 #search-input::placeholder {
   color: var(--light-color);
@@ -117,7 +117,8 @@
   padding: 3px 10px;
   cursor: pointer;
 }
-.member-offline .member-img, .member-offline .member-name {
+.member-offline .member-img,
+.member-offline .member-name {
   opacity: 0.3;
 }
 .member-container:hover,
@@ -326,7 +327,7 @@
   border-radius: 5px;
   border: none;
   transition: 0.2s;
-  cursor:not-allowed;
+  cursor: not-allowed;
 }
 .lower-overview button:hover {
   background-color: #696c77;
@@ -342,7 +343,7 @@
   box-sizing: border-box;
   z-index: 11;
   color: var(--light-color);
-  cursor:not-allowed;
+  cursor: not-allowed;
 }
 
 .messages-section {
@@ -423,7 +424,7 @@
   font-family: "gg sans";
   font-weight: normal;
 }
-.plus-menu-inactive{
+.plus-menu-inactive {
   display: none;
 }
 #plus-menu p {
@@ -465,18 +466,17 @@
 #reply-name {
   color: yellow;
 }
-#cancel-reply{
+#cancel-reply {
   cursor: pointer;
   transition: 0.2s;
   font-size: 14px;
   padding: 3px 5px;
   border-radius: 500px;
-  background-color: #b5bac1;;
-  color:#2b2d31;
+  background-color: #b5bac1;
+  color: #2b2d31;
 }
-#cancel-reply:hover{
+#cancel-reply:hover {
   background-color: #ffffff;
-
 }
 .message-bar-replied {
   border-top-left-radius: 0px;
@@ -491,7 +491,6 @@
   flex: 1;
   overflow-y: scroll;
   overflow-x: hidden;
-
 }
 .chat::-webkit-scrollbar {
   width: 8px;
@@ -588,13 +587,13 @@
 }
 .message-reactions > * {
   padding: 3px;
-  background-color: #2b2d31;
+  background-color: #2b2d3197;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
   border: 1px solid transparent;
   display: flex;
-  gap:5px;
+  gap: 5px;
   padding: 0px 5px;
   align-items: center;
   position: relative;
@@ -603,20 +602,24 @@
   border-color: var(--grey-color);
   background-color: transparent;
 }
-.message-reactions > *:hover .message-reactors{
+.message-reactions > *:hover .message-reactors {
   display: block;
 }
 
-.message-reactors{
+.message-reactors {
   text-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: none;
   position: absolute;
-  top:-30px;
+  top: -30px;
   background: #232528;
   padding: 5px;
   border-radius: 10px;
-  left:50%;
-  translate: -50% 0;
+  left: 0px;
+  font-size: 14px;
+  max-width: 250px;
 }
 
 .message-icons {
@@ -655,30 +658,29 @@
 /* .message-icons i:hover::before {
   padding: 25px 210px;
 } */
-.message-emojis{
-    font-family: "Open Sans", sans-serif;
+.message-emojis {
+  font-family: "Open Sans", sans-serif;
   display: none;
   position: absolute;
   top: 0px;
   translate: 0 calc(-100% + 20px);
-  right:-150px;
+  right: -150px;
   min-width: 350px;
   padding: 20px;
   cursor: default;
-
 }
-.message-emojis-active{
+.message-emojis-active {
   display: flex;
-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-.message-emojis >*{
+.message-emojis > * {
   background: #232528;
   font-size: 20px;
   cursor: pointer;
   transition: 0.2s;
   padding: 7px;
 }
-.message-emojis >*:hover{
+.message-emojis > *:hover {
   background: #383a40;
 }
 .message-reply {
@@ -756,8 +758,8 @@ flex-wrap: wrap;
   #show-left-section-button {
     display: block;
   }
-  .member-overview{
-    right:50%;
+  .member-overview {
+    right: 50%;
     translate: 50% 0;
   }
 }
@@ -828,11 +830,11 @@ flex-wrap: wrap;
 #delete-button:hover {
   background: rgb(165, 35, 35);
 }
-.message-edit-input{
+.message-edit-input {
   outline: none;
   border: solid 1px #b5bac1;
   background: rgba(0, 0, 0, 0.1);
-  color:white;
+  color: white;
   overflow: hidden;
   resize: none;
   padding: 15px 20px;
@@ -851,21 +853,21 @@ flex-wrap: wrap;
   font-family: "gg sans";
 }
 
-#loading-messages{
+#loading-messages {
   margin-top: 100px;
-  color:#676a6f;;
+  color: #676a6f;
   font-family: "gg sans";
   font-size: 64px;
   font-weight: bold;
 }
 
-#send{
-  transform: rotateZ(45deg) ;
+#send {
+  transform: rotateZ(45deg);
   cursor: pointer;
   transition: 0.2s;
   font-size: 24px;
 }
 
-.fa-face-smile{
+.fa-face-smile {
   position: relative;
 }
