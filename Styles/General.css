@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "gg sans"; /* Name your font family */
+  src: url("../Fonts/gg\ sans\ Medium.ttf"); /* Locate the .ttf file within your directory*/
+}
+
+
 body {
   font-family: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial,
     sans-serif, "Apple Symbols";
